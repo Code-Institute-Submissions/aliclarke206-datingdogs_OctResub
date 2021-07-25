@@ -35,6 +35,7 @@ def dog_detail(request, dog_id):
 
     context = {
         'dog': dog,
+        'search_term': query,
     }
 
     return render(request, 'dogs/dog_detail.html', context)
