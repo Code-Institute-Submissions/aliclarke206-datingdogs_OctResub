@@ -1,6 +1,10 @@
 from django.db import models
 
 class Breed(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Breeds'
+
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
@@ -12,6 +16,10 @@ class Breed(models.Model):
 
 
 class Dog(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Dogs'
+
     Breed = models.ForeignKey('Breed', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     description = models.TextField()

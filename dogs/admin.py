@@ -2,5 +2,20 @@ from django.contrib import admin
 from .models import Breed, Dog
 
 # Register your models here.
-admin.site.register(Breed)
-admin.site.register(Dog)
+
+class DogAdmin(admin.ModelAdmin):
+    list_display = (
+        'name',
+        'age',
+        'rating',
+        'image',
+    )
+
+class BreedAdmin(admin.ModelAdmin):
+    list_display = (
+        'friendly_name',
+        'name',
+    )
+
+admin.site.register(Dog, DogAdmin)
+admin.site.register(Breed, BreedAdmin)
