@@ -11,6 +11,22 @@ def all_dogs(request):
     dogs = Dog.objects.all()
     query = None
     breeds = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                dogs = dogs.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            dogs = dogs.order_by(sortkey)
 
     if request.GET:
         if 'breed' in request.GET:
@@ -28,10 +44,13 @@ def all_dogs(request):
             queries = Q(location__icontains=query) | Q(description__icontains=query)
             dogs = dogs.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'dogs': dogs,
         'search_term': query,
         'current_breeds': breeds,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'dogs/dogs.html', context)
