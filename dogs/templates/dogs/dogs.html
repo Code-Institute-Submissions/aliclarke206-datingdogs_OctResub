@@ -15,6 +15,11 @@
     <div class="row">
         <div class="col text-center mt-3">
             <h2 class="logo-font">Dogs</h2>
+            {% for d in current_breeds %}
+                    <a class="dog-badge text-decoration-none" href="{% url 'dogs' %}?breed={{ d.name }}">
+                        <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark">{{ d.friendly_name }}</span>
+                    </a>
+                {% endfor %}
             <hr class="w-50 mb-1">
         </div>
     </div>
@@ -42,6 +47,13 @@
                                 <div class="row">
                                     <div class="col">
                                         <p class="lead mb-0 text-left font-weight-bold">{{ dog.age }} years</p>
+                                        {% if dog.breed %}
+                                            <p class="small mt-1 mb-0">
+                                                <a class="text-muted" href="{% url 'dogs' %}?breed={{ dog.breed.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ dog.breed.friendly_name }}
+                                                </a>
+                                            </p>
+                                            {% endif %}
                                         {% if dog.rating %}
                                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ dog.rating }} / 5</small>
                                         {% else %}
