@@ -5,6 +5,7 @@ from .models import Dog, Breed
 
 # Create your views here.
 
+
 def all_dogs(request):
     """ A view to show all dogs, including sorting and search queries """
 
@@ -21,7 +22,8 @@ def all_dogs(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 dogs = dogs.annotate(lower_name=Lower('name'))
-
+            if sortkey == 'breed':
+                sortkey = 'breed__name'
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
