@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
 {% block content %}
 <div class="container">
-<form action="/action_page.php" class="needs-validation subscribe_form" novalidate>
+<form action="/action_page.php" class="needs-validation" novalidate>
     <div class="form-group">
       <label for="uname">Username:</label>
       <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
