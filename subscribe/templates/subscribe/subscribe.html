@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'subscribe/css/subscribe.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -10,51 +14,74 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-<form action="/action_page.php" class="needs-validation" novalidate>
-    <div class="form-group">
-      <label for="uname">Username:</label>
-      <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
-      <div class="valid-feedback">Valid.</div>
-      <div class="invalid-feedback">Please fill out this field.</div>
-    </div>
-    <div class="form-group form-check">
-      <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> I agree on blabla.
-        <div class="valid-feedback">Valid.</div>
-        <div class="invalid-feedback">Check this checkbox to continue.</div>
-      </label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
-{% endblock %}
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Subscribe</h2>
+                <hr>
+            </div>
+        </div>
 
-{% block postloadjs %}
-<script>
-    // Disable form submissions if there are invalid fields
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        // Get the forms we want to add validation styles to
-        var forms = document.getElementsByClassName('needs-validation');
-        // Loop over them and prevent submission
-        var validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-    </script>
-    {% endblock %}
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <p class="text-muted">Please fill out the form below to complete your subscription</p>
+                <form action="{% url 'subscribe' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        {{ subscription_form.full_name | as_crispy_field }}
+                        {{ subscription_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                        {{ subscription_form.country | as_crispy_field }}
+                        {{ subscription_form.town_or_city | as_crispy_field }}
+                        {{ subscription_form.county | as_crispy_field }}
+                        <div class="form-check form-check-inline float-right mr-0">
+							{% if user.is_authenticated %}
+								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+							{% else %}
+								<label class="form-check-label" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                </label>
+							{% endif %}
+						</div>
+                    </fieldset>
+                    <fieldset class="px-3">
+                        <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                        <!-- A Stripe card element will go here -->
+                        <div class="mb-3" id="card-element"></div>
+
+                        <!-- Used to display form errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    </fieldset>
+
+                    <div class="submit-button text-right mt-5 mb-2">                    
+						<a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+							<span class="icon">
+								<i class="fas fa-chevron-left"></i>
+							</span>
+							<span class="font-weight-bold">Adjust Bag</span>
+						</a>
+						<button id="submit-button" class="btn btn-black rounded-0">
+							<span class="font-weight-bold">Complete Order</span>
+							<span class="icon">
+								<i class="fas fa-lock"></i>
+							</span>
+						</button>
+						<p class="small text-danger my-0">
+							<span class="icon">
+								<i class="fas fa-exclamation-circle"></i>
+							</span>
+							<span>Your card will be charged <strong>$50 </strong></span>
+						</p>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
