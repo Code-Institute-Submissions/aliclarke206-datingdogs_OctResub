@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.contrib import messages
+from django.conf import settings
 
 from .forms import SubscriptionForm
+import stripe
 
 # Create your views here.
 
