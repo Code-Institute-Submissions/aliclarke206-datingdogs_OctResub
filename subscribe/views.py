@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 
@@ -30,7 +30,7 @@ def subscribe(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('subscribe_success', args=[subscription.member_number]))
 
-         else:
+        else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
 
@@ -49,7 +49,6 @@ def subscribe(request):
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
 
-
     template = 'subscribe/subscribe.html'
     context = {
         'subscription_form': subscription_form,
@@ -59,16 +58,16 @@ def subscribe(request):
 
     return render(request, template, context)
 
+
 def subscribe_success(request, member_number):
     """
-    Handle successful checkouts
+    Handle successful subscribes
     """
     save_info = request.session.get('save_info')
     subscribe = get_object_or_404(Subscription, member_number=member_number)
     messages.success(request, f'Subscription successfully processed! \
         Your order number is {member_number}. A confirmation \
         email will be sent to {subscribe.email}.')
-
 
     template = 'subscribe/subscribe_success.html'
     context = {
