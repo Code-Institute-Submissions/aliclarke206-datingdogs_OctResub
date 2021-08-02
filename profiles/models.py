@@ -17,7 +17,7 @@ class UserProfile(models.Model):
     name = models.CharField(max_length=254)
     description = models.TextField()
     location = models.CharField(max_length=254, null=True, blank=True)
-    age = models.DecimalField(max_digits=6, decimal_places=0)
+    age = models.DecimalField(max_digits=6, decimal_places=0, null=True)
     default_country = CountryField(blank_label='Country *', null=True, blank=True)
     default_town_or_city = models.CharField(max_length=40, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
