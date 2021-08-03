@@ -1,6 +1,7 @@
 import uuid
 
 from django.db import models
+from dogs.models import Dog
 from django_countries.fields import CountryField
 
 from profiles.models import UserProfile
@@ -37,3 +38,10 @@ class Subscription(models.Model):
 
     def __str__(self):
         return self.member_number
+
+class SubscriptionLineItem(models.Model):
+    subscription = models.ForeignKey(Subscription, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
+    dog = models.ForeignKey(Dog, null=False, blank=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.subscription

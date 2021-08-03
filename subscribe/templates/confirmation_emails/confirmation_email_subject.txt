@@ -1,0 +1,1 @@
+Boutique Ado Confirmation for subscription Number {{ subscription.subscription_number }}
