@@ -78,9 +78,9 @@ def add_dog(request):
     if request.method == 'POST':
         form = NewDogForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            dog = form.save()
             messages.success(request, 'Successfully added dog!')
-            return redirect(reverse('add_dog'))
+            return redirect(reverse('dog_detail', args=[dog.id]))
         else:
             messages.error(request, 'Failed to add dog. Please ensure the form is valid.')
     else:
@@ -92,3 +92,35 @@ def add_dog(request):
     }
 
     return render(request, template, context)
+
+
+def edit_dog(request, dog_id):
+    """ Edit a dog in the store """
+    dog = get_object_or_404(Dog, pk=dog_id)
+    if request.method == 'POST':
+        form = NewDogForm(request.POST, request.FILES, instance=dog)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated dog!')
+            return redirect(reverse('dog_detail', args=[dog.id]))
+        else:
+            messages.error(request, 'Failed to update dog. Please ensure the form is valid.')
+    else:
+        form = NewDogForm(instance=dog)
+        messages.info(request, f'You are editing {dog.name}')
+
+    template = 'dogs/edit_dog.html'
+    context = {
+        'form': form,
+        'dog': dog,
+    }
+
+    return render(request, template, context)
+
+
+def delete_dog(request, dog_id):
+    """ Delete a dog from the store """
+    dog = get_object_or_404(Dog, pk=dog_id)
+    dog.delete()
+    messages.success(request, 'dog deleted!')
+    return redirect(reverse('dogs'))
