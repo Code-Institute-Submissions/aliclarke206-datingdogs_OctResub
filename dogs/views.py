@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
+
 from .models import Dog, Breed
+from .forms import NewDogForm
 
 # Create your views here.
 
@@ -69,3 +71,14 @@ def dog_detail(request, dog_id):
     }
 
     return render(request, 'dogs/dog_detail.html', context)
+
+
+def add_dog(request):
+    """ Add a dog to the store """
+    form = NewDogForm()
+    template = 'dogs/add_dog.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
