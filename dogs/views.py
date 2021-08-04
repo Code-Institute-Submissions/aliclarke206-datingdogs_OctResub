@@ -75,7 +75,17 @@ def dog_detail(request, dog_id):
 
 def add_dog(request):
     """ Add a dog to the store """
-    form = NewDogForm()
+    if request.method == 'POST':
+        form = NewDogForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added dog!')
+            return redirect(reverse('add_dog'))
+        else:
+            messages.error(request, 'Failed to add dog. Please ensure the form is valid.')
+    else:
+        form = NewDogForm()
+        
     template = 'dogs/add_dog.html'
     context = {
         'form': form,
