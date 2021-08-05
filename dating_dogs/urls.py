@@ -25,4 +25,5 @@ urlpatterns = [
     path('dogs/', include('dogs.urls')),
     path('subscribe/', include('subscribe.urls')),
     path('profile/', include('profiles.urls')),
+    path('direct_message/', include('direct_messages.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
