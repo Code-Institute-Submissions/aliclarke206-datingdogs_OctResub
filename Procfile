@@ -1,0 +1,1 @@
+web: gunicorn dating_dogs.wsgi:application

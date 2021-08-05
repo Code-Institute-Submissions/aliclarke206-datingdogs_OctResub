@@ -98,10 +98,11 @@ def add_dog(request):
 @login_required
 def edit_dog(request, dog_id):
     """ Edit a dog  """
-    dog = get_object_or_404(Dog, pk=dog_id)
-    if not request.user.is_superuser or request.user == dog.user:
+    if not request.user.is_superuser:
         messages.error(request, 'Sorry, only dog owners can do that.')
         return redirect(reverse('home'))
+    
+    dog = get_object_or_404(Dog, pk=dog_id)
     if request.method == 'POST':
         form = NewDogForm(request.POST, request.FILES, instance=dog)
         if form.is_valid():
