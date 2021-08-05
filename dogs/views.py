@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -72,7 +73,7 @@ def dog_detail(request, dog_id):
 
     return render(request, 'dogs/dog_detail.html', context)
 
-
+@login_required
 def add_dog(request):
     """ Add a dog to the store """
     if request.method == 'POST':
@@ -93,9 +94,12 @@ def add_dog(request):
 
     return render(request, template, context)
 
-
+@login_required
 def edit_dog(request, dog_id):
-    """ Edit a dog in the store """
+    """ Edit a dog  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only dog owners can do that.')
+        return redirect(reverse('home'))
     dog = get_object_or_404(Dog, pk=dog_id)
     if request.method == 'POST':
         form = NewDogForm(request.POST, request.FILES, instance=dog)
@@ -117,9 +121,12 @@ def edit_dog(request, dog_id):
 
     return render(request, template, context)
 
-
+@login_required
 def delete_dog(request, dog_id):
-    """ Delete a dog from the store """
+    """ Delete a dog  """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only dog owners can do that.')
+        return redirect(reverse('home'))
     dog = get_object_or_404(Dog, pk=dog_id)
     dog.delete()
     messages.success(request, 'dog deleted!')

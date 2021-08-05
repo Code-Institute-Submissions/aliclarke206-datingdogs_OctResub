@@ -1,4 +1,7 @@
 from django.db import models
+from subscribe.models import Subscription
+from django.contrib.auth.models import User
+
 
 class Breed(models.Model):
 
@@ -20,6 +23,9 @@ class Dog(models.Model):
     class Meta:
         verbose_name_plural = 'Dogs'
 
+    member_number = models.ForeignKey(Subscription, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='subscription')
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     breed = models.ForeignKey('Breed', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     description = models.TextField()

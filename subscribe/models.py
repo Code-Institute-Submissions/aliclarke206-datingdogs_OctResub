@@ -1,7 +1,6 @@
 import uuid
 
 from django.db import models
-from dogs.models import Dog
 from django_countries.fields import CountryField
 
 from profiles.models import UserProfile
@@ -19,7 +18,6 @@ class Subscription(models.Model):
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
-    grand_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _generate_member_number(self):
         """
@@ -39,9 +37,3 @@ class Subscription(models.Model):
     def __str__(self):
         return self.member_number
 
-class SubscriptionLineItem(models.Model):
-    subscription = models.ForeignKey(Subscription, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    dog = models.ForeignKey(Dog, null=False, blank=False, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.subscription
