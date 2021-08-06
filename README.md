@@ -187,7 +187,7 @@ The project was also tested on multiple browsers (Chrome, Microsoft edge, Intern
 ## Deployment
 
 The source code for this website was deployed and stored in a GitHub repository while the website application is hosted by Heroku. The two are linked so any new commits or pushes to GitHub's master branch are also updated on the Heroku hosting service. The database for this website is hosted in a cluster on MongoDB.
-Link to Heroku live site is [here](https://hike-review-milestone3.herokuapp.com/).
+Link to Heroku live site is [here](https://dating-dogs.herokuapp.com/).
 
 ### Heroku Cloud
 Heroku service allows for the deployment of our app as a live website, below are the steps required to host a project:
