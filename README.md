@@ -201,6 +201,7 @@ The project was also tested on multiple browsers (Chrome, Microsoft edge, Intern
 
 
 #### Bugs 
+Had trouble making migrations once the app was connected to Heroku. There was an error connecting to the DATABASE_URL. This is a known bug in Gitpod which was remedied by unsetting the DATABASE_URL in the command line. 
 
 ## Deployment
 
