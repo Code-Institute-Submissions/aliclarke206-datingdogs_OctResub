@@ -48,17 +48,15 @@ The site is linked with the SQlite3 database in development and PostgreSQL in pr
 ### Skeleton
 The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information. The user can navigate to a single detail page for the dog for added description given by their owner. The users profile link, login and logout functions, add dog functionality are all displayed in the navigation bar. The user is either directed to log in or subscribe. Once the user has paid the subscription they are then lead to verify and register their email. Once that's complete they can then add a dog to the site. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
 
-[Home Page](wireframes/home_page.png)
+[Home Page](media/index_page.png)
 
-[Add/Edit Page](wireframes/add_edit_page.png)
+[Add/Edit Page](media/add-delete-page.png)
 
-[Contact Us Page](wireframes/contact_us.png)
+[Dog_detail](media/dog detail page.png)
 
-[dog Detail Page](wireframes/detail_page.png)
+[All dogs](media/all_dogs_page.png)
 
-[Login/register Page](wireframes/Login_register.png)
-
-[User profile](wireframes/users_profile.png)
+[future messenger](media/messenger.png)
 
 
 ### Surface
@@ -72,14 +70,16 @@ The surface of the site should be clean and simple. All the content is well spac
 * Ability to customize dog details and add any extra relevant information. 
 * Users have their own profile which they can register and create their own password.
 * dogs created by the user can be deleted using the delete dog button and added new dog using the “add new dog".
-* The user can contact the site creator directly by email. EmailJS sends the designated email address to let them know about the query. A screenshot of the recieved image is here [Email correspondence]()
-* Location is available through google maps API to compliment the key features of dog om details page.
+* Social links in footer available for more content
+* verification email when signing in
+* stripe to pay for subscription
 
 
 ### Features Left to Implement
 
 * Adding in the messaging functionality to enable users to direct message each other. (I started to write the code but unfortunately ran out of time)
-* Use the email functionality in order to send emails from the account. 
+* 
+
 
 ## Technologies Used
 

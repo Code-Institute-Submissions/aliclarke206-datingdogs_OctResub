@@ -23,15 +23,12 @@ class Dog(models.Model):
     class Meta:
         verbose_name_plural = 'Dogs'
 
-    member_number = models.ForeignKey(Subscription, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='subscription')
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     breed = models.ForeignKey('Breed', null=True, blank=True, on_delete=models.SET_NULL)
     name = models.CharField(max_length=254)
     description = models.TextField()
     location = models.CharField(max_length=254, null=True, blank=True)
     age = models.DecimalField(max_digits=6, decimal_places=0)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    type = models.CharField(max_length=254, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
 

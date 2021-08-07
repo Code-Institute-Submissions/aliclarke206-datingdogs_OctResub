@@ -33,7 +33,6 @@
                             <option value="age_asc" {% if current_sorting == 'age_asc' %}selected{% endif %}>age (low to high)</option>
                             <option value="age_desc" {% if current_sorting == 'age_desc' %}selected{% endif %}>age (high to low)</option>
                             <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
                             <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                             <option value="breed_asc" {% if current_sorting == 'breed_asc' %}selected{% endif %}>breed (A-Z)</option>
@@ -78,11 +77,6 @@
                                                 </a>
                                             </p>
                                             {% endif %}
-                                        {% if dog.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ dog.rating }} / 5</small>
-                                        {% else %}
-                                            <small class="text-muted">No Rating</small>
-                                        {% endif %}
                                         {% if request.user.is_superuser or request.user == dog.user %}
                                             <small class="ml-3">
                                                 <a href="{% url 'edit_dog' dog.id %}">Edit</a> | 
