@@ -74,7 +74,6 @@
                 <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
             {% else %}
-                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
             {% endif %}
             <a href="{% url 'subscribe' %}" class="dropdown-item">Subscribe</a>
@@ -117,6 +116,55 @@
 
     {% block content %}
     {% endblock %}
+    <footer class="container-fluid">
+        <div class="container">
+            <div class="row bg-white pt-lg-2 d-none d-lg-flex">
+                <div class="col l6 s12">
+                    <p class="grey-text text-lighten-4">Find your best pal, a pawfect pal!</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="uppercase">Social</h5>
+                    <ul class="list-inline social-links valign-wrapper">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://twitter.com/">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://ie.linkedin.com/">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.instagram.com/">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.pinterest.com/">
+                                <i class="fab fa-pinterest" aria-hidden="true"></i>
+                                <span class="sr-only">Pinterest</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        <div class="footer-copyright">
+            <div class="container center-align">
+                © 2021 Copyright Text
+            </div>
+        </div>
+    </footer>
 
     {% block postloadjs %}
     <script type="text/javascript">

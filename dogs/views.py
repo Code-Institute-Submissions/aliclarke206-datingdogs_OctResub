@@ -76,7 +76,7 @@ def dog_detail(request, dog_id):
 
 @login_required
 def add_dog(request):
-    """ Add a dog to the store """
+    """ Add a dog to the database """
     if request.method == 'POST':
         form = NewDogForm(request.POST, request.FILES)
         if form.is_valid():
@@ -126,7 +126,7 @@ def edit_dog(request, dog_id):
 @login_required
 def delete_dog(request, dog_id):
     """ Delete a dog  """
-    if not request.user.is_superuser:
+    if not (request.user.is_superuser or request.user.id == dog.user.id):
         messages.error(request, 'Sorry, only dog owners can do that.')
         return redirect(reverse('home'))
     dog = get_object_or_404(Dog, pk=dog_id)

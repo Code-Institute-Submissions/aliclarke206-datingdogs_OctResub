@@ -83,7 +83,7 @@ def subscribe_success(request, member_number):
     save_info = request.session.get('save_info')
     subscribe = get_object_or_404(Subscription, member_number=member_number)
     messages.success(request, f'Subscription successfully processed! \
-        Your order number is {member_number}. A confirmation \
+        Your member number is {member_number}. A confirmation \
         email will be sent to {subscribe.email}.')
 
     template = 'subscribe/subscribe_success.html'

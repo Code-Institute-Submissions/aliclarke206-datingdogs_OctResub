@@ -1,49 +1,52 @@
-Media content
-[Index Image](https://news.sky.com/story/puppy-love-dating-site-for-pedigree-dogs-10487944)
-
-superuser credentials: username:alisonclarke, password:6themayne
+superuser credentials: username:milestone4, password:6themayne
 
 # MileStone Project Four
 ## Dog Dating Website
 
-This project is a simple and responsive design to allow users to easily search, navigate to find new hikes and also to share reviews of hikes that the user may have already completed. The key features of each hike are broken down for quick and easy comparison. Users can also search hikes, locations are available and an email contact service is provided for any concerns or questions.  
+#### Disclaimer
+This project has not been fully completed. Between apprenticeship application interviews and projects and a massively increasing working hours post covid, I have not been able to complete to the best of my ability. I did the best I could in the time frame I had but please excuse the lack of content due to the time constraints I struggled with. 
+
+This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to also search through different categories, locations, ages, activity levels etc and to message potential dog owners. Owners can search the different dogs but the subscription service will allow them access to view the dogs full profile and message another user.
 
 ## Ux
 ### Strategy
 
-The basic strategy behind this application was to create a simple and easy to navigate where users could search for hikes in their area or selected county, explore the hikes themselves and then leave a review and recommendations for future hikers. The objective was to create a community for hike lovers to share and recommend the best places or even to avoid. 
+The basic strategy behind this application was to create a simple and easy to navigate where users could search for other dog dates in their area or selected county. The objective was to create a community for dog lovers to set their pets up with a social life. 
 
 **User Stories**
 
 As a user of this application: 
 
-* I would like to search for local hikes.
+* I would like to search for dogs with different criteria.
 * Read reviews and recommendations from other users.
-* See the location of the hikes.
-* See the difficulty of the hikes
-* Find information about the distance and amenities such as parking. 
-* I would like to be able to leave reviews and add my own recommendations. 
-* Be able to contact someone about any issues with any of the content or the hikes. 
+* See the location of the dogs.
+* See the breed of the dogs
+* see the age.
+* Find information about them from their description.  
+* Be able to contact someone about any issues with any of the content or the dogs. 
 * Easy to use on desktop and mobile.
 * Simple design with no complicated format. 
 
+**Site owner Stories**
+* A self sufficent site where users pay a one off subscription to enable them to upload their profile, message other users and search through other profiles.
+* Low maintainance as automatic emails, updates and messages are enabled to support the user.
+* Potential to incorporate adds in the future for extra revenue. 
 
 ### Scope
 The specifications and requirements for the site to adhere to the user stories include:
-* A search bar to easily find the hike you're looking for
-* A form to easily add new hikes
-* A contact page for the user to reach out to the site creator.
+* A search bar to easily find the dog you're looking for or in nearby locations.
+* A form to easily add new dogs and edit or delet if you are the user.
 * Links to social media accounts for more content.
-* A link to google maps with the location of the hike 
-* A single page with the break down of the key features of the hike such as difficulty and duration. 
-* A log in and out function so users have their own page of reviews that they have left.
+* A single detail page with more infromatipn of the dog.
+* A log in and out function so users have their own page.
+* Stripe functionality to allow for easy sign up to one of subscription.
 
 
 ### Structure
-The site is linked with the MongoDB database to allow the user to easily obtain new information correlating with the selected hike. The user can filter through using the search bar and then click each individual hike for more detailed information. The EmailJS functionality makes it easier for the user to make contact.  And the location of the hikes is easily found with the google maps link associated with the hike
+The site is linked with the SQlite3 database in development and PostgreSQL in production to allow the user to easily obtain new information correlating with the selected dog. The user can filter through using the search bar and then click each individual dog for more detailed information. 
 
 ### Skeleton
-The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information. The user can navigate to a single detail page for the hike for added description and location. The users profile link, login and logout functions, add hike functionality are all displayed in the navigation bar. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
+The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information. The user can navigate to a single detail page for the dog for added description given by their owner. The users profile link, login and logout functions, add dog functionality are all displayed in the navigation bar. The user is either directed to log in or subscribe. Once the user has paid the subscription they are then lead to verify and register their email. Once that's complete they can then add a dog to the site. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
 
 [Home Page](wireframes/home_page.png)
 
@@ -51,7 +54,7 @@ The skeleton of the site was designed to be clean and simple and easy to navigat
 
 [Contact Us Page](wireframes/contact_us.png)
 
-[Hike Detail Page](wireframes/detail_page.png)
+[dog Detail Page](wireframes/detail_page.png)
 
 [Login/register Page](wireframes/Login_register.png)
 
@@ -59,18 +62,18 @@ The skeleton of the site was designed to be clean and simple and easy to navigat
 
 
 ### Surface
-The surface of the site should be clean and simple. All the content is well spaced out and not overloaded with graphics and animations. Easy to follow and one main background image with hiking imagery.
+The surface of the site should be clean and simple. All the content is well spaced out and not overloaded with graphics and animations. Easy to follow and one main background image with dog imagery.
 
 
 ## Features
 ### Existing Features
 * Easy, simple design to allow for seamless navigation.
-* Hike detail section to see key features of hike in bullet points.
-* Ability to customize hike details and add any extra relevant information. 
+* dog detail section to see key features of dog in bullet points.
+* Ability to customize dog details and add any extra relevant information. 
 * Users have their own profile which they can register and create their own password.
-* Hikes created by the user can be deleted using the delete hike button and added new hike using the “add new hike".
+* dogs created by the user can be deleted using the delete dog button and added new dog using the “add new dog".
 * The user can contact the site creator directly by email. EmailJS sends the designated email address to let them know about the query. A screenshot of the recieved image is here [Email correspondence]()
-* Location is available through google maps API to compliment the key features of hike om details page.
+* Location is available through google maps API to compliment the key features of dog om details page.
 
 
 ### Features Left to Implement
@@ -142,7 +145,7 @@ The Python was checked using the [Python code validator](http://pep8online.com/)
 Manual testing was carried out to ensure the site carries out the intentions of the user stories.
 
 ##### Nav bar
-* Displays navigation elements according to user. If session isn’t a user it won’t display profile, add hike or logout element. The appropriate login or register elements appear. 
+* Displays navigation elements according to user. If session isn’t a user it won’t display profile, add dog or logout element. The appropriate login or register elements appear. 
 * Responsive to drop down menu on smaller screens. 
 
 ##### Footer
@@ -150,18 +153,18 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * Socail links open to seperate tab. 
 
 ##### Search bar
-* Filters counties, and hike names correctly.
+* Filters counties, and dog names correctly.
 * Flash message appears if no results are found
 * Reset button brings user back to home page if clicked. 
 
 ##### Feature Wall 
-* Displays hike reviews created by all users. 
-* Delete and edit buttons appear for those hikes which were created by the user.
-* Clicking on specific hike brings the user to indiviual detail page. 
+* Displays dog reviews created by all users. 
+* Delete and edit buttons appear for those dogs which were created by the user.
+* Clicking on specific dog brings the user to indiviual detail page. 
 
-##### Hike Detail Page
-* The correct hike details populate the key features field.
-* The Google maps iframe loads to the correct location of the hike using the hike name and county as parameters for search. 
+##### dog Detail Page
+* The correct dog details populate the key features field.
+* The Google maps iframe loads to the correct location of the dog using the dog name and county as parameters for search. 
 * The description correctly populates underneath the Google image. 
 * If the user is the creator of the review the edit and delete buttons appear at the bottom to link to the edit delete functionality. 
 
@@ -172,12 +175,12 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * Object Id is successfullly removed from the database
 
 ##### Edit function
-* The form pre populates with the information from the hike id it was on. 
+* The form pre populates with the information from the dog id it was on. 
 * The drop down menu populates with the counties from the counties collection from the database. 
 * If edited, a flash message appears and user is returned to their profile page. 
 * Object ID is succesfullly updated in the database.
 
-##### Add hike function
+##### Add dog function
 * The drop down menu populates with the counties from the counties collection from the database. 
 * If added, a flash message appears and user is returned to their profile page.
 * Object ID is succesfullly added in the database.
@@ -190,6 +193,8 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 ##### Contact Page
 * Social links animation move on hover
 * Once form is filled in and send message is clicked, there is a message displayed directly after to acknowledge that the email has been sent. An email was recieved by the creator and the correspondence is [linked here](emailJS/image/emailJS_screenshot.jpg).
+
+#### Webhook and Emails
 
 The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
 

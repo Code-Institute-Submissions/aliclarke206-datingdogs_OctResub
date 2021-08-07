@@ -7,7 +7,6 @@ class DogAdmin(admin.ModelAdmin):
     list_display = (
         'name',
         'age',
-        'rating',
         'image',
     )
 
