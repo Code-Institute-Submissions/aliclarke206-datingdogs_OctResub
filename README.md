@@ -75,17 +75,15 @@ The surface of the site should be clean and simple. All the content is well spac
 
 ### Features Left to Implement
 
-* Ability to favourite hikes and/or have a rating poll so hikes could be arranged in order of popularity.
-* Ability to interact more with each other as users to create a community amoung the reviewers, such as leaving comments under reviews to allow for more engagement between users to ask questions directly to other users. 
-* Adding a weather feature API to link with the location of the hikes so the user would be able to obtain information if it was a good day to visit the hike.
-* An ability to add links to other apps. For example, a Fitness wearable if the hike or trail was used for training.
-* Use the maps API to show the starting and end point of the hike and also its alternative routes. 
+* Adding in the messaging functionality to enable users to direct message each other. (I started to write the code but unfortunately ran out of time)
+* Use the email functionality in order to send emails from the account. 
+
 ## Technologies Used
 
 1. CSS programming language
 2. HTML programming language
 3. Javascript Programming language.
-4. [Materilize](https://materializecss.com/)
+4. [Bootstrap](https://getbootstrap.com/)
 * To create a responsive structure for the website. 
 5. [Balsamiq wireframes](https://balsamiq.com/wireframes/)
 * used to create mock ups of what the site will look like
@@ -109,14 +107,30 @@ The surface of the site should be clean and simple. All the content is well spac
 * To add Javascript functionality
 15. [Javascript Validator](https://jshint.com/)
 * To validate Javascript code
-16. [EmailJS](https://www.emailjs.com/)
-* To facilitate email requests
-17. [Google Maps API](https://developers.google.com/maps)
-* To facilitate location functionality
-18. [Jinga templating language](https://jinja.palletsprojects.com/en/3.0.x/)
+16. [Jinga templating language](https://jinja.palletsprojects.com/en/3.0.x/)
 * To help extend templates and iterate through objects. 
-19. [Mongo DB](https://www.mongodb.com/)
-* The database to store data 
+18. [Stripe](https://stripe.com/ie)
+* To make the subscription payment possible
+19. [Django](https://djangopackages.org/)
+* Python framework for building the project.
+20. [Gunicorn](https://gunicorn.org/)
+* A Python WSGI HTTP Server to enable deployment to Heroku.
+21. [Psycopg2](https://pypi.org/project/psycopg2/)
+* Enable the PostgreSQL database to function with Django.
+22. [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+*  To style Django forms.
+23. [Pillow](https://pillow.readthedocs.io/en/stable/)
+* Saving image file formats
+24. [Heroku](https://www.heroku.com)
+* Host the project.
+25. [AWS S3 Bucket](https://aws.amazon.com/s3/)
+* Store static and media files in prodcution.
+26. [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+* Compatibility with AWS.
+27. [SQlite3](https://www.sqlite.org/index.html)
+* Development database.
+28. [PostgreSQL](https://www.postgresql.org/)
+* Production database.
 ## Testing
 
 The HTML was checked using the [W3C validator Service](https://validator.w3.org/#validate_by_input).
@@ -177,35 +191,46 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * Social links animation move on hover
 * Once form is filled in and send message is clicked, there is a message displayed directly after to acknowledge that the email has been sent. An email was recieved by the creator and the correspondence is [linked here](emailJS/image/emailJS_screenshot.jpg).
 
-The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and device sizes to ensure compatibility and responsiveness.
+The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
 
 
 
 #### Bugs 
 
-* white space issue when putting hike description in edit hike area. Solved with minus within jinga template
 ## Deployment
 
-The source code for this website was deployed and stored in a GitHub repository while the website application is hosted by Heroku. The two are linked so any new commits or pushes to GitHub's master branch are also updated on the Heroku hosting service. The database for this website is hosted in a cluster on MongoDB.
+The source code for this website was deployed and stored in a GitHub repository while the website application is hosted by Heroku. The two are linked so any new commits or pushes to GitHub's master branch are also updated on the Heroku hosting service. AWS was also used to store media and static files. 
 Link to Heroku live site is [here](https://dating-dogs.herokuapp.com/).
 
 ### Heroku Cloud
 Heroku service allows for the deployment of our app as a live website, below are the steps required to host a project:
 
-##### Create a new app linked to Github:
+##### Create a new app linked to Github and connecting to SW3 bucket:
 * On Heroku website create a user account as required.
 * Once registered, click "New" in the top right and "Create App" from the dropdown.
 * Choose a name and region and then create app button.
-* Once on your new app page, select the "Settings" header and scroll to Config Var. Here you can click "reveal Config Vars" to add new configuration details.
-* Assign a variable of 'IP' with a value of '0.0.0.0', next another named 'PORT' with a value of '5000'. 
-* Next add any URI, DBNAME, SECRET_KEYS or other variables you do not want to be public.
-* From your gitpod/VSCode, create a file named Procfile. Enter 'web: python app.py', to help Heroku assess what sort of app you are creating.
-* Next, in the command line type 'pip3 freeze --local > requirements.txt' to automatically generate a file with any flask or python tools which are used in creating/using your project.
+* In the Resources, within Add-ons searched Heroku Postgres, chose Hobby Dev - Free version. 
+* In Settings click on Reveal Config Vars button, and copy the value of DATABASE_URL.
+* Then back in Gitpod, install psycopg2 and dj_database_url. And pip3 freeze > requirements.txt to store the new requirements. 
+* In settings.py and add import dj_database_url and update DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))} 
+* Run makemigrations, followed by migrate to update migrations to progres DB
+* Create a new superuser
+* Returned to terminal window and ran sudo pip3 install gunicorn and added to requirements.txt
+* Created a Procfile using the following command: echo web: gunicorn ms4.wsgi:application
 * Go back to Heroku and select the "Deploy" option. Under "Deployment method", select the "Github: Connect to Github" option.
 * Type in the repository which you want to host and search. 
 * Once connected, select "Choose branch to deploy" and choose master. Then, click the "Enable Automatic Deploys" button which will enable automatic updates to heroku app.
 * Click "Deploy branch".
 * The app should now be successfully deployed and any github pushes should also be updated to the heroku app. 
+* Log into Amazon AWS, go to S3 and create a new S3 bucket.
+* In Gitpod, install django-storages and install boto3. Went to settings.py and added storages to INSTALLED_APPS.
+* Updated enviroment variables in settings.py fie for the AWS bucket and access keys.
+* Create custom_storage.py
+* Update allowed hosts in settings.py to allow for heroku url to run
+
+
+
+
 
 ##### How to clone the repository:
 
@@ -219,7 +244,7 @@ Heroku service allows for the deployment of our app as a live website, below are
 * Clone the repository as shown above.
 * Install the necessary libraries specified in the requirements.txt.
 * Create a new file named env.py and add your variables to it.
-* Create a gitignore file and include env.py so the information is not oassed to the master branch.
+* Create a gitignore file and include env.py so the information is not passed to the master branch.
 * In your manage.py file, 'Import' your env.py file.
 * Using 'python3 manage.py' in the command line you can run the project.
 
@@ -236,24 +261,19 @@ A repository was created on GitHub and Gitpod was used to write the code. The co
 7. This [link](https://github.com/aliclarke206/datingdogs.git) can now be cloned and run locally.
 
 ## Credit
-* Custom validation for the add/edit form for the bug in the materializecss class from thecode institute tutuorial.
+* The project's code was developed by following the Code Institute tutorials for the Boutique Ado Django Mini-Project, and customised to meet the requirements of my project.
+
 ### Content
-Some of the content about the hikes and trails were sourced from [All Trails](https://www.alltrails.com/). 
+ 
 
 ### Media
 #### Image
 The source for the background images were from the following stories
-* [Background Image 1](https://www.kevinandamanda.com/cliffs-of-moher/).
-* [Background Image 2](https://www.irishcentral.com/uploads/article/46589/walking_hiking_ireland_getty.jpg?t=1605605516).
-* [Background Image 3](https://img.theculturetrip.com/450x/smart/wp-content/uploads/2020/08/bjfmt0.jpg).
-* [Background Image 4](https://thumbs-prod.si-cdn.com/Um3X9ygjd9CIgys35Klyfs4ECPU=/1072x500/filters:focal(1368x1212:1369x1213)/https://public-media.smithsonianjourneys.org/filer/30/7e/307e4fbf-dd84-42cd-8c8b-b0aeaefa1825/active_ire_hiker_dt_l_119992650.jpg).
-* [Home icon Image 1](https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fgeoffreymorrison%2Ffiles%2F2016%2F04%2F8-Scenic-Spots-Not-To-Miss-in-Ireland-by-Geoffrey-Morrison-1-of-12-1200x800.jpg).
-* [Home icon Image 2](https://i.pinimg.com/550x/d2/10/f7/d210f7d908b62ba71589db2e7556b6d4.jpg).
-* [Home icon Image 2](https://www.activeme.ie/wp-content/uploads/2016/09/Causaway-Coast-Scenic-Drive-Derry-to-Ballycastle-to-Belfast-Co-Antrim-Northern-Ireland-connects-to-Irelands-Wild-Atlantic-Way.jpg).
-
+* Media content
+[Index Image](https://news.sky.com/story/puppy-love-dating-site-for-pedigree-dogs-10487944)
 
 
 ### Acknowledgements
-The code institute tutorials were very helpful to grasp new concepts and fucntionalitys. Inspiration from hiking sites such as [All Trails](https://www.alltrails.com/) really helped to create some of the UX design. 
-
 Also my mentor, Brian Macharia for helping me along the way!
+
+The tutor support for always being on hand when needed. 

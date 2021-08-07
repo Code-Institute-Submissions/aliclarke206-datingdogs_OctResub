@@ -1,1 +1,1 @@
-Boutique Ado Confirmation for subscription Number {{ subscription.subscription_number }}
+Dating Dogs Confirmation for subscription Number {{ subscription.member_number }}

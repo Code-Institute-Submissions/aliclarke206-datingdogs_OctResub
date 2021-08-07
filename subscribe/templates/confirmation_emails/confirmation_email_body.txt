@@ -1,15 +1,11 @@
 Hello {{ subscription.full_name }}!
 
-This is a confirmation of your subscription at Boutique Ado. Your subscription information is below:
+This is a confirmation of your subscription at Dating Dogs. Your subscription information is below:
 
-subscription Number: {{ subscription.subscription_number }}
+subscription Number: {{ subscription.member_number }}
 subscription Date: {{ subscription.date }}
 
-subscription Total: ${{ subscription.subscription_total }}
-Delivery: ${{ subscription.delivery_cost }}
-Grand Total: ${{ subscription.grand_total }}
-
-Your subscription will be shipped to {{ subscription.street_address1 }} in {{ subscription.town_or_city }}, {{ subscription.country }}.
+Your subscription  in {{ subscription.town_or_city }}, {{ subscription.country }}.
 
 We've got your phone number on file as {{ subscription.phone_number }}.
 
@@ -19,4 +15,4 @@ Thank you for your subscription!
 
 Sincerely,
 
-Boutique Ado
+Dating Dogs
