@@ -1,4 +1,3 @@
-superuser credentials: username:milestone4, password:6themayne
 
 # MileStone Project Four
 ## Dog Dating Website
@@ -77,8 +76,12 @@ The surface of the site should be clean and simple. All the content is well spac
 
 ### Features Left to Implement
 
+
+* A lot more could be done to this project. More testing needed to be done and better naviagtion for the user and better UX. The basic functionalities work but it still requires a lot more work.
 * Adding in the messaging functionality to enable users to direct message each other. (I started to write the code but unfortunately ran out of time)
-* 
+* More time to edit CSS and design of the site. Time was limitied and therefore the look and feel of the site suffered. 
+* Could add some affiliated products to the site for your dog as an added revenue stream. 
+* Ablitiy to sned likes to other dogs and make it a bit more interactive. Maybe include some blog posts about puppy meet ups etc in local areas. 
 
 
 ## Technologies Used
@@ -147,25 +150,26 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 ##### Nav bar
 * Displays navigation elements according to user. If session isn’t a user it won’t display profile, add dog or logout element. The appropriate login or register elements appear. 
 * Responsive to drop down menu on smaller screens. 
+* Use can sort by breed type age, breed or location.
 
 ##### Footer
-* Social links animation works on hover.
-* Socail links open to seperate tab. 
+* Social links animation works on hover (on local host -- bug- all static files didnt upload to heroku).
+* Social links open to seperate tab. 
 
 ##### Search bar
-* Filters counties, and dog names correctly.
-* Flash message appears if no results are found
+* Filters through description, breed and location.
 * Reset button brings user back to home page if clicked. 
 
-##### Feature Wall 
+##### Page Wall 
 * Displays dog reviews created by all users. 
 * Delete and edit buttons appear for those dogs which were created by the user.
 * Clicking on specific dog brings the user to indiviual detail page. 
+* The sorting bar correctly orders the dogs by age, location, breed and name.
+* also when using the sorting the correct number of dogs appears at the top. 
 
 ##### dog Detail Page
 * The correct dog details populate the key features field.
-* The Google maps iframe loads to the correct location of the dog using the dog name and county as parameters for search. 
-* The description correctly populates underneath the Google image. 
+* The description correctly populates underneath the image. 
 * If the user is the creator of the review the edit and delete buttons appear at the bottom to link to the edit delete functionality. 
 
 ##### Delete function
@@ -175,13 +179,12 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * Object Id is successfullly removed from the database
 
 ##### Edit function
-* The form pre populates with the information from the dog id it was on. 
-* The drop down menu populates with the counties from the counties collection from the database. 
+* The drop down menu populates with the breed from the breed collection from the database. 
 * If edited, a flash message appears and user is returned to their profile page. 
 * Object ID is succesfullly updated in the database.
 
 ##### Add dog function
-* The drop down menu populates with the counties from the counties collection from the database. 
+* Ability to add image and url. 
 * If added, a flash message appears and user is returned to their profile page.
 * Object ID is succesfullly added in the database.
 
@@ -190,18 +193,21 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * If logged in the user is directed to their profile page
 * When logged out the session user is removed and is redirected back to login page. 
 
-##### Contact Page
-* Social links animation move on hover
-* Once form is filled in and send message is clicked, there is a message displayed directly after to acknowledge that the email has been sent. An email was recieved by the creator and the correspondence is [linked here](emailJS/image/emailJS_screenshot.jpg).
+##### Subscribe
+* The subscribe page brings the user to a page to add details and credit card to allow the user to acces the rest of the site.
+* When tester card is used it successfully logs in the stripe account and webhook handler is successful
 
 #### Webhook and Emails
+
+Initially my webhook handelers were getting a error 401 message when I tried to test them but this was due to my local host not being public. Once the site was linked to the public heroku app the webhooks were successful and the charge is successful. 
+Also when a user creates an account a verification email is successfully sent to the user to allow them to verify their account. 
 
 The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
 
 
 
 #### Bugs 
-Had trouble making migrations once the app was connected to Heroku. There was an error connecting to the DATABASE_URL. This is a known bug in Gitpod which was remedied by unsetting the DATABASE_URL in the command line. 
+Had trouble making migrations once the app was connected to Heroku. There was an error connecting to the DATABASE_URL. This is a known bug in Gitpod which was remedied by unsetting the DATABASE_URL in the command line. When I did this and pushed to github, it stopped deploying to Heroku. 
 
 ## Deployment
 
