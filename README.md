@@ -137,6 +137,10 @@ The surface of the site should be clean and simple. All the content is well spac
 * Development database.
 28. [PostgreSQL](https://www.postgresql.org/)
 * Production database.
+
+## Information Architecture
+During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
+
 ## Testing
 
 The HTML was checked using the [W3C validator Service](https://validator.w3.org/#validate_by_input).
