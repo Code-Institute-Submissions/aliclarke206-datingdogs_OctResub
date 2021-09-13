@@ -6,10 +6,13 @@ body {
     background: url('/media/index_image.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
-    color: #555;
     font-family: 'Lato';
 }
 
+/* ----------Header */
+header {
+    background-color: rgb(105, 103, 115);
+}
 /* from Bulma */
 .icon {
     align-items: center;
@@ -27,7 +30,7 @@ body {
     width: fit-content;
 }
 
-.shop-now-button {
+.date-now-button {
     background: black;
     color: white;
     min-width: 260px;
@@ -38,9 +41,9 @@ body {
     color: white;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+.date-now-button:hover,
+.date-now-button:active,
+.date-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
@@ -49,7 +52,7 @@ body {
 }
 
 .text-black {
-    color: #000 !important;
+    color: black !important;
 }
 
 .border-black {
@@ -292,4 +295,41 @@ input[name='q']::placeholder {
 @keyframes spin{
     0%{ transform: rotate(0deg);}
     100%{transform: rotate(360deg);}
+}
+
+/* -------------------- Footer */
+
+footer {
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+
+.footer-background {
+    background: rgb(105, 103, 115);
+}
+
+.footer-heading{
+   color: rgba(239, 241, 243); 
+   padding-top: 1rem;
+   text-transform: uppercase;
+   font-weight: 800;
+}
+
+.footer-link {
+    transition: all .15s ease-in-out;
+    color: rgb(239, 241, 243);
+}
+
+.footer-link:hover {
+    transform: scale(1.1);
+}
+
+.footer-copyright {
+    color: rgb(239, 241, 243);
+}
+
+.footer-heading p {
+    color: rgb(239, 241, 243);
 }
