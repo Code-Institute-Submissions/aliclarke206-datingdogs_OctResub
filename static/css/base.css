@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: url('/media/index_image.jpg') no-repeat center center fixed;
+    background: url('/media/dogs_index.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     font-family: 'Lato';
@@ -11,7 +11,8 @@ body {
 
 /* ----------Header */
 header {
-    background-color: rgb(105, 103, 115);
+    background-image: linear-gradient(rgb(105, 103, 115), rgb(239, 241, 243));
+    opacity: 0.7;
 }
 /* from Bulma */
 .icon {
@@ -180,6 +181,11 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+btn-orange {
+    background: rgb(254, 215, 102);
+    color: rgb(239, 241, 243);
+}
+
 
 /* -------------------------------- Media Queries */
 
@@ -288,7 +294,7 @@ input[name='q']::placeholder {
 
 
 .social-links li a i:hover {
-    background: #e84610;
+    background: rgb(254, 215, 102);
     animation: spin 1s;
 }
 
@@ -311,7 +317,7 @@ footer {
 }
 
 .footer-heading{
-   color: rgba(239, 241, 243); 
+   color: rgb(254, 215, 102); 
    padding-top: 1rem;
    text-transform: uppercase;
    font-weight: 800;

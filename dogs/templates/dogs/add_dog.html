@@ -12,15 +12,12 @@
  <div class="overlay"></div>
  <div class="container">
     <div class="row">
-       <div class="col-12 col-md-6">
-          <hr>
-          <h2 class="logo-font mb-4">dog Management</h2>
-          <h5 class="text-muted">Add a dog</h5>
-          <hr>
+       <div class="col-12">
+          <h5 class="text-center">Add a dog</h5>
        </div>
     </div>
     <div class="row">
-       <div class="col-12 col-md-6">
+       <div class="col-12">
           <form method="POST" action="{% url 'add_dog' %}" class="form mb-2" enctype="multipart/form-data">
              {% csrf_token %}
              {% for field in form %}
@@ -30,9 +27,9 @@
              {{ field }}
              {% endif %}
              {% endfor %}
-             <div class="text-right">
-                <a class="btn btn-outline-black rounded-0" href="{% url 'dogs' %}">Cancel</a>
-                <button class="btn btn-black rounded-0" type="submit">Add dog</button>
+             <div class="text-center">
+                <a class="btn btn-orange rounded-0" href="{% url 'dogs' %}">Cancel</a>
+                <button class="btn btn-orange rounded-0" type="submit">Add dog</button>
              </div>
           </form>
        </div>
