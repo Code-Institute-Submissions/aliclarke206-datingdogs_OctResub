@@ -153,7 +153,34 @@ input[name='q']::placeholder {
     border-bottom-color: #343a40 !important;
 }
 
-/* Dog Form */
+/* -----------------Dog Detail */
+
+.dog_detail_background{
+    background:  url('/media/dog_detail_page.jpg') no-repeat center center fixed; ;
+    background-size: cover;
+}
+
+.dog-details-container {
+    background-color: rgb(254, 215, 102);
+    opacity: 0.9;
+    border-radius: 25px;
+    border: none;
+    text-align: center;
+    padding: 25px;
+}
+
+.dog-details-container a {
+    background-color: rgb(0, 159, 183);
+    color: rgb(239, 241, 243);
+    border-radius: 25px;
+    padding: 1em;
+}
+
+.dog-details-container .image-container{
+    border-radius: 25px;
+}
+
+/* -----------------Dog Form */
 
 .btn-file {
     position: relative;
