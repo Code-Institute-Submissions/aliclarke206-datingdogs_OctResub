@@ -11,10 +11,15 @@ body {
 
 /* ----------Header */
 header {
-    background-image: linear-gradient(rgb(105, 103, 115), rgb(239, 241, 243));
-    opacity: 0.7;
+    background-image: linear-gradient(rgb(105, 103, 115), rgb(239, 241, 243))
 }
 
+.dropdown i {
+    color: rgb(254, 215, 102);
+}
+ .dropdown p{
+     color: rgb(254, 215, 102);
+ }
 
 /* from Bulma */
 .icon {
@@ -37,6 +42,11 @@ header {
     background: black;
     color: white;
     min-width: 260px;
+}
+
+.btn-orange {
+    background: rgb(254, 215, 102);
+    color: rgb(239, 241, 243);
 }
 
 .btn-black {
@@ -156,6 +166,13 @@ input[name='q']::placeholder {
 }
 
 /* -----------------Dog Detail */
+
+.dog_detail_header h1 {
+    background-color: rgb(239, 241, 243);
+    padding: 10px;
+    border-radius: 25px;
+    font-weight: 700;
+}
 
 .dog_detail_background{
     background:  url('/media/dog_detail_page.jpg') no-repeat center center fixed; ;
@@ -322,8 +339,8 @@ input[name='q']::placeholder {
 
 
 .social-links li a i {
-    width: 30px;
-    height: 30px;
+    width: 65px;
+    height: 65px;
     padding: 27px 0;
     border-radius: 50%;
     line-height: 7px;
