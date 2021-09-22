@@ -246,6 +246,20 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 
+.add_dog_container {
+    background-color: rgb(254, 215, 102);
+    padding-top: 15px;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.btn_add_cancel{
+    background-color: rgb(0, 159, 183);
+    color: rgb(239, 241, 243);
+    border-radius: 25px;
+    padding: 0.5rem;
+}
+
 
 
 /* -------------------------------- Media Queries */
