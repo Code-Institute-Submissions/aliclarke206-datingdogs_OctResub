@@ -14,23 +14,23 @@
 {% endblock %}
 
 {% block content %}
-    <div class="overlay"></div>
-    <div class="container">
+    <div class="container add_dog_container">
         <div class="row">
-            <div class="col">
-                <hr>
+            <div class="col-12 text-center">
                 <h2 class="logo-font mb-4">Thank You</h2>
-                <hr>
-                <p class="text-black">Your subscription is below. A confirmation email will be sent to <strong>{{ subscribe.email }}</strong>.</p>
-            </div>
+                <p class="text-black text_center">Your subscription was successful. A confirmation email will be sent to <strong>{{ subscribe.email }}</strong>.</p>
+                <div class="container">
+                <img src="/media/index_image.jpg" alt="HTML5 Icon" class="responsive">
+                <div class="centered"><h2>Your Pooch will appreciate it!</h2> </div>
+                </div>
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-7"></div>
+            <div class="col-12"></div>
         </div>
         <div class="row">
-			<div class="col-12 col-lg-7 text-right">
-				<a href="{% url 'account_signup' %}"  class="btn btn-black rounded-0 my-2">
+			<div class="col-12 text-center">
+				<a href="{% url 'account_signup' %}"  class="btn btn_add_cancel my-2">
 					<span class="icon mr-2">
 						<i class="fas fa-paw"></i>
 					</span>
@@ -38,5 +38,6 @@
 				</a>
 			</div>
 		</div>
+    </div>
     </div>
 {% endblock %}

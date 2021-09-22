@@ -260,7 +260,18 @@ input[name='q']::placeholder {
     padding: 0.5rem;
 }
 
+/* -----------------Subscribe Success  */
+.responsive {
+    max-width: 100%;
+    height: auto;
+}
 
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /* -------------------------------- Media Queries */
 
