@@ -133,3 +133,12 @@ def delete_dog(request, dog_id):
     dog.delete()
     messages.success(request, 'dog deleted!')
     return redirect(reverse('dogs'))
+
+def contact_us(request):
+
+    return render(request, 'dogs/contact_us.html')
+
+
+def about_us(request):
+
+    return render(request, 'dogs/about_us.html')
