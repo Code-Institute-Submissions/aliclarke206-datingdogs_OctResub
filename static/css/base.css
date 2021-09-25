@@ -280,6 +280,7 @@ input[name='q']::placeholder {
     border-radius: 25px;
     border: none;
     margin: 0;
+    margin-bottom: 10px;
 }
 
   .contact_request, input[type=text], select, textarea {
