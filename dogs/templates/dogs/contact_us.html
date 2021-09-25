@@ -4,11 +4,111 @@
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
-            <div class="col"></div>
+            <div class="col text-center dog_detail_header"> <h1>Contact Us</h1></div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-<h1>Testing the contact page</h1>
+    <div class="container">
+        <div class="row contact_request">
+            <div class="row">
+                    <h4 class="text-center">Connect with us on Socials or drop us a line and we'll get back to you!!</h4>
+                </div>
+            <div class="col-md-4 col-sm-12 d-flex justify-content-center">
+                <div class="row">
+                    <ul class="list-inline social-links d-flex flex-column justify-content-center">
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.facebook.com/">
+                                <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                                <span class="sr-only">Facebook</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://twitter.com/">
+                                <i class="fab fa-twitter" aria-hidden="true"></i>
+                                <span class="sr-only">Twitter</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://ie.linkedin.com/">
+                                <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                                <span class="sr-only">LinkedIn</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.instagram.com/">
+                                <i class="fab fa-instagram" aria-hidden="true"></i>
+                                <span class="sr-only">Instagram</span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a target="_blank" href="https://www.pinterest.com/">
+                                <i class="fab fa-pinterest" aria-hidden="true"></i>
+                                <span class="sr-only">Pinterest</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-12">
+                <div class="container">
+                <form id="contact_form">
+                    <div class="field">
+                        <label for="from_name">Name</label>
+                        <input type="text" name="from_name" id="from_name">
+                    </div>
+                    <div class="field">
+                        <label for="from_email">Email Address</label>
+                        <input type="text" name="from_email" id="from_email">
+                    </div>
+                    <div class="field">
+                        <label for="query">Query</label>
+                        <select id="query" name="query">
+                            <option value="" disabled selected>Choose Query</option>
+                            <option value="General query">General query</option>
+                            <option value="Report an information error">Report an information error</option>
+                            <option value="Log in issues">Log in issues</option>
+                            <option value="Report a user">Report a user</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Write something.." style="height:200px"></textarea>
+                    </div>
+                    <input type="submit" id="button" value="Send Email" class="text-center">
+                </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+<script type="text/javascript">
+    const btn = document.getElementById('button');
+
+document.getElementById('contact_form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_pn417n8';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+ </script>
 {% endblock %}
