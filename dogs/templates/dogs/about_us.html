@@ -13,7 +13,16 @@
 <div class="container">
     <div class="row contact_request">
         <div class="col-12">
-            <div class="container">Inside the container</div>
+            <div class="container about_us">
+                <img src="/media/paw_image.jpg" alt="Paw" class="responsive">
+                <div class="centered">
+                    This is some info about the process of the dating comapny
+                
+                    <a href="{% url 'subscribe' %}" class="btn btn_add_cancel">Subscribe Now<i class="fas fa-paw"></i></a>
+                    <a href="{% url 'account_login' %}" class="btn btn_add_cancel">Login Now<i class="fas fa-paw"></i></a>
+                    <a href="{% url 'dogs' %}" class="btn btn_add_cancel">Date Now<i class="fas fa-paw"></i></a>
+                </div>
+            </div>
         </div>
 
 

@@ -21,6 +21,7 @@ header {
      color: rgb(254, 215, 102);
  }
 
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -103,6 +104,7 @@ input[name='q']::placeholder {
     color: #aab7c4;
 }
 
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
@@ -175,7 +177,7 @@ input[name='q']::placeholder {
 }
 
 .dog_detail_background{
-    background:  url('/media/dog_detail_page.jpg') no-repeat center center fixed; ;
+    background:  url('/media/dog_detail_page.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 
@@ -283,7 +285,7 @@ input[name='q']::placeholder {
     margin-bottom: 10px;
 }
 
-  .contact_request, input[type=text], select, textarea {
+  .contact_request input[type=text], select, textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -344,12 +346,9 @@ input[name='q']::placeholder {
   }
 }
 
-@media screen and (max-width: 600px) {
-    .contact_request, ul {
-      display: flex;
-      flex-direction: row;
-    }
-  }
+
+  /* -------------------- About us Page */
+
 
 /* -------------------------------- Media Queries */
 
@@ -392,12 +391,12 @@ input[name='q']::placeholder {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: #000;
+    background-color:rgb(0, 159, 183);
     border: 1px solid #000;
     padding: .375rem .75rem;
     font-size: 1rem;
     line-height: 1.5;
-    border-radius: 0;
+    border-radius: 25px;
 
     /* standard bootstrap btn transitions */
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
@@ -411,7 +410,10 @@ input[name='q']::placeholder {
 }
 
 .allauth-form-inner-content a {
-	color: #17a2b8; /* text-info */
+	color: #fff; /* text-info */
+    background-color:rgb(0, 159, 183);
+    border: 1px solid #000;
+    border-radius: 25px;
 }
 
 /* fixed top navbar only on medium and up */
@@ -500,6 +502,6 @@ footer {
     color: rgb(239, 241, 243);
 }
 
-.footer-heading p {
-    color: rgb(239, 241, 243);
+footer, a {
+    text-decoration: none;
 }
