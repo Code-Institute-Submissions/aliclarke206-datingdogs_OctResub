@@ -61,7 +61,7 @@ def all_dogs(request):
 
     return render(request, 'dogs/dogs.html', context)
 
-
+@login_required
 def dog_detail(request, dog_id):
     """ A view to show individual dog details """
 
