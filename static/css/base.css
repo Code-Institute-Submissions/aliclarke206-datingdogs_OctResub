@@ -108,6 +108,7 @@ input[name='q']::placeholder {
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
+    background-color: rgb(254, 215, 102);
     position: fixed;
     top: 72px;
     right: 15px;
@@ -116,10 +117,12 @@ input[name='q']::placeholder {
 
 .custom-toast {
     overflow: visible;
+    background-color: rgb(254, 215, 102);
 }
 
 .toast-capper {
     height: 2px;
+    background-color: rgb(254, 215, 102);
 }
 
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
@@ -144,7 +147,7 @@ input[name='q']::placeholder {
 }
 
 .arrow-success {
-    border-bottom-color: #28a745 !important;
+    border-bottom-color: rgb(0, 159, 183) !important;
 }
 
 .arrow-danger {
