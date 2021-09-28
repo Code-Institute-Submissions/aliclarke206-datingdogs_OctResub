@@ -287,7 +287,8 @@ A repository was created on GitHub and Gitpod was used to write the code. The co
 The source for the background images were from the following stories
 * Media content
 [Index Image](https://news.sky.com/story/puppy-love-dating-site-for-pedigree-dogs-10487944)
-[About Us Background](<a href='https://www.freepik.com/vectors/logo'>Logo vector created by rawpixel.com - www.freepik.com</a>)
+[About Us Background](https://www.freepik.com/vectors/logo)
+[How it works images](https://members.tagalongdates.com/)
 
 
 ### Acknowledgements
