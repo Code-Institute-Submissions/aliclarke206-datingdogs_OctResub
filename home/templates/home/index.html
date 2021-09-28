@@ -22,10 +22,25 @@
                 </h4>   
             </div>
         </div>
-        <div class="col-md-6 col-sm-12 my-auto">
-            Take the lead in your dating life by connecting with single dog owners and singles who love dogs. Our dog dating site is the place where you can browse, message, share stories and be part of a community. Find someone you will be barking mad over.
+        <div class="col-md-6 col-sm-12 my-auto text-center index_page">
+            <div class="row">
+                <div class="col-12 info_box">
+                <strong>
+                    Dating isn't just for humans! Our precious pooches also enjoy sniffing around and having a social life! 
+                    Our dog dating site is the place where you can browse, message,  and be part of a community to organise playdates for pooches.
+                    They too, deserve to find a date they will be barking mad over.
+                </strong>
+                </div>
+            </div>
+                <div class="row">
+                    <div class="col-12">
+                        <a href="{% url 'about_us' %}" class="btn btn_add_cancel">How it works?<i class="fas fa-paw"></i></a>
+                    <a class="btn btn_add_cancel" href="{% url 'subscribe' %}">Subscribe Now<i class="fas fa-paw"></i></a>
+                    <a href="{% url 'account_login' %}" class="btn btn_add_cancel">Login Now<i class="fas fa-paw"></i></a>
+                    </div>
+                </div>
+            </div>
             
         </div>
-    </div>
-    </div>
+   </div>
 {% endblock %}
