@@ -3,6 +3,7 @@ from .models import Breed, Dog
 
 # Register your models here.
 
+
 class DogAdmin(admin.ModelAdmin):
     list_display = (
         'name',
@@ -10,11 +11,13 @@ class DogAdmin(admin.ModelAdmin):
         'image',
     )
 
+
 class BreedAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 admin.site.register(Dog, DogAdmin)
 admin.site.register(Breed, BreedAdmin)
