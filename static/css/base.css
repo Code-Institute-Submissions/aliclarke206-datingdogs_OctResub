@@ -382,12 +382,12 @@ input[name='q']::placeholder {
 
 .allauth-form-inner-content p {
     margin-top: 1.5rem; /* mt-4 */
-    color: rgb(105, 103, 115); /* text-secondary */
+    color: #000; /* text-secondary */
 }
 
 .allauth-form-inner-content input {
     border-color: #000;
-    border-radius: 25px;
+    
 }
 
 .allauth-form-inner-content label:not([for='id_remember']) {
