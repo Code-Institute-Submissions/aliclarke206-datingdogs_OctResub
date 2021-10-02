@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-{% block extra_title %} - Blog {% endblock %}
+{% block extra_title %} - Add Post {% endblock %}
 {% load static %}
 {% block page_header %}
 <div class="container header-container">
    <div class="row">
       <div class="col text-center dog_detail_header">
-         <h1>Post</h1>
+         <h1>Add Post</h1>
       </div>
    </div>
 </div>
@@ -14,17 +14,13 @@
 
 <div class="container">
     <div class="row contact_request">
-<h1>{{ post.title }}</h1>
-<small> By : {{ post.author }}</small><br/>
-<hr>
-<br/>
-{{ post.body }}
+      <form method="POST">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button type="submit" class="btn btn-secondary">Post</button>
+     </form>
 
-<br/>
-<br/>
-<a href="{% url 'blog' %}" class="btn btn_add_cancel"> Back</a>
-<a href="{% url 'add_post' %}" class="btn btn_add_cancel"> Add post</a>
-
+      
     </div>
 </div>
 {% endblock %}
