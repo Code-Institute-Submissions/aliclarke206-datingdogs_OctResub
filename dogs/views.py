@@ -44,9 +44,10 @@ def all_dogs(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error
+                (request, "You didn't enter any search criteria!")
                 return redirect(reverse('dogs'))
-            
+
             queries = Q(location__icontains=query) | Q(description__icontains=query)
             dogs = dogs.filter(queries)
 
@@ -60,6 +61,7 @@ def all_dogs(request):
     }
 
     return render(request, 'dogs/dogs.html', context)
+
 
 @login_required
 def dog_detail(request, dog_id):
@@ -84,16 +86,18 @@ def add_dog(request):
             messages.success(request, 'Successfully added dog!')
             return redirect(reverse('dog_detail', args=[dog.id]))
         else:
-            messages.error(request, 'Failed to add dog. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add dog. Please ensure the form is valid.')
     else:
         form = NewDogForm()
-        
+
     template = 'dogs/add_dog.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_dog(request, dog_id):
@@ -102,7 +106,7 @@ def edit_dog(request, dog_id):
     if not (request.user.is_superuser or request.user.id == dog.user.id):
         messages.error(request, 'Sorry, only dog owners can do that.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = NewDogForm(request.POST, request.FILES, instance=dog)
         if form.is_valid():
@@ -123,6 +127,7 @@ def edit_dog(request, dog_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_dog(request, dog_id):
     """ Delete a dog  """
@@ -133,6 +138,7 @@ def delete_dog(request, dog_id):
     dog.delete()
     messages.success(request, 'dog deleted!')
     return redirect(reverse('dogs'))
+
 
 def contact_us(request):
 

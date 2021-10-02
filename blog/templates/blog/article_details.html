@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block extra_title %} - Blog {% endblock %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+   <div class="row">
+      <div class="col text-center dog_detail_header">
+         <h1>Post</h1>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row contact_request">
+<h1>{{ post.title }}</h1>
+<small> By : {{ post.author }}</small><br/>
+<hr>
+<br/>
+{{ post.body }}
+
+<br/>
+<br/>
+<a href="{% url 'blog' %}" class="btn btn_add_cancel"> Back</a>
+
+    </div>
+</div>
+{% endblock %}

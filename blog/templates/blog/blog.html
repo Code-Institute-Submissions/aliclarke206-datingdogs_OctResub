@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block extra_title %} - Blog {% endblock %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+   <div class="row">
+      <div class="col text-center dog_detail_header">
+         <h1>Post</h1>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row contact_request">
+<ul>
+{% for post in object_list %}
+   <li><a href="{% url 'article_detail' post.pk %}">{{ post.title }} - {{ post.author }}</a><br/>
+    {{ post.author.first_name }}
+    {{ post.author.last_name }}
+    {{ post.author.email }}
+   {{ post.body }}</li>
+{% endfor %}
+</ul>
+    </div>
+</div>
+{% endblock %}

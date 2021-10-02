@@ -2,8 +2,6 @@
 # MileStone Project Four
 ## Dog Dating Website
 
-#### Disclaimer
-This project has not been fully completed. Between apprenticeship application interviews and projects and a massively increasing working hours post covid, I have not been able to complete to the best of my ability. I did the best I could in the time frame I had but please excuse the lack of content due to the time constraints I struggled with. 
 
 This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to also search through different categories, locations, ages, activity levels etc and to message potential dog owners. Owners can search the different dogs but the subscription service will allow them access to view the dogs full profile and message another user.
 
@@ -137,6 +135,8 @@ The surface of the site should be clean and simple. All the content is well spac
 * Development database.
 28. [PostgreSQL](https://www.postgresql.org/)
 * Production database.
+29. [EmailJS](https://www.emailjs.com/)
+* To enable email service for the contact page. 
 
 ## Information Architecture
 During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
