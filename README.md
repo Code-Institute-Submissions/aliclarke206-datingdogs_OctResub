@@ -2,8 +2,13 @@
 # MileStone Project Four
 ## Dog Dating Website
 
+###About
+Welcome to Dating Dogs, a webapp to help dogs find love! This is a Python app using Django, cloudinary and Email JS to produce a social media style application.
 
-This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to also search through different categories, locations, ages, activity levels etc and to message potential dog owners. Owners can search the different dogs but the subscription service will allow them access to view the dogs full profile and message another user.
+Dating Dogs currently brings users together and allows them to get in contact with the pups they love! The application lets the users create a profile that allows them to add their dogs’ details, add photos, let other users know when the next walk with their dog is happening through blog posts, and access the contact information of fellow pooches. The site offers the additional functionality; reset paasswords,reporting other users, contact us, editing and deleting blogs as well as their profiles,and backend validation. Please look at the features section for a more detailed description. The application has a lot of room for growth and a list of future features to implement.
+
+
+This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to also search through different categories, locations, ages etc and to message potential dog owners. Owners can search the different dogs but the subscription service will allow them access to view the dogs full profile and access there contact information. The subscription service will also allow them to access the blog posts for group puppy playdates.
 
 ## Ux
 ### Strategy
@@ -58,6 +63,7 @@ The skeleton of the site was designed to be clean and simple and easy to navigat
 
 ### Surface
 The surface of the site should be clean and simple. All the content is well spaced out and not overloaded with graphics and animations. Easy to follow and one main background image with dog imagery.
+![ColourScheme Image](/media/colorscheme.png)
 
 
 ## Features
