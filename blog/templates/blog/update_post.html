@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block extra_title %} - Edit Post {% endblock %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+   <div class="row">
+      <div class="col text-center dog_detail_header">
+         <h1>Edit Post</h1>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row contact_request">
+      <form method="POST">
+         {% csrf_token %}
+         {{ form.as_p }}
+         <button type="submit" class="btn btn-secondary">Post</button>
+     </form>
+
+      
+    </div>
+</div>
+{% endblock %}

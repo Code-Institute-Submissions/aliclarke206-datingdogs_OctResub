@@ -24,6 +24,8 @@
 <br/>
 <a href="{% url 'blog' %}" class="btn btn_add_cancel"> Back</a>
 <a href="{% url 'add_post' %}" class="btn btn_add_cancel"> Add post</a>
+<a href="{% url 'update_post' post.pk %}" class="btn btn_add_cancel">Edit</a>
+<a href="{% url 'delete_post' post.pk %}" class="btn btn_add_cancel">Delete</a>
 
     </div>
 </div>

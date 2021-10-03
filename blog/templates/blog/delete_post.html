@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block extra_title %} - Delete Post {% endblock %}
+{% load static %}
+{% block page_header %}
+<div class="container header-container">
+   <div class="row">
+      <div class="col text-center dog_detail_header">
+         <h1>Delete Post</h1>
+      </div>
+   </div>
+</div>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+    <div class="row contact_request">
+        <h4>Delete {{ post.title }}</h4>
+      <form method="POST">
+         {% csrf_token %}
+        <h4>Are you sure? </h4>
+        <br/>
+         <button type="submit" class="btn btn-secondary">Delete</button>
+     </form>
+
+      
+    </div>
+</div>
+{% endblock %}
