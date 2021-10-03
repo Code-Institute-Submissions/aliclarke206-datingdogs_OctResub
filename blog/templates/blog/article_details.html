@@ -14,8 +14,10 @@
 
 <div class="container">
     <div class="row contact_request">
+      {% if user.is_authenticated %} 
 <h1>{{ post.title }}</h1>
 <small> By : {{ post.author }}</small><br/>
+{{ post.post_date}}
 <hr>
 <br/>
 {{ post.body }}
@@ -24,9 +26,14 @@
 <br/>
 <a href="{% url 'blog' %}" class="btn btn_add_cancel"> Back</a>
 <a href="{% url 'add_post' %}" class="btn btn_add_cancel"> Add post</a>
+{% if request.user.is_superuser or request.user == post.user %}
 <a href="{% url 'update_post' post.pk %}" class="btn btn_add_cancel">Edit</a>
 <a href="{% url 'delete_post' post.pk %}" class="btn btn_add_cancel">Delete</a>
+{% endif %}
+{% else %}
+<H1>You will need to login to access blog post</H1>
 
+{% endif %}
     </div>
 </div>
 {% endblock %}

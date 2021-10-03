@@ -14,12 +14,16 @@
 
 <div class="container">
     <div class="row contact_request">
+      {% if user.is_authenticated %} 
       <form method="POST">
          {% csrf_token %}
          {{ form.as_p }}
          <button type="submit" class="btn btn-secondary">Post</button>
      </form>
-
+     {% else %}
+     <H1>You will need to login to access blog post</H1>
+     
+     {% endif %}
       
     </div>
 </div>

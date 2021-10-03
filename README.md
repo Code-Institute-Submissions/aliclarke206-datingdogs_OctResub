@@ -208,6 +208,9 @@ Also when a user creates an account a verification email is successfully sent to
 
 The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
 
+#### Blog
+* Slice method on blog posts ensures that only 200 characters display on blog page with all the posts.
+
 
 
 #### Bugs 

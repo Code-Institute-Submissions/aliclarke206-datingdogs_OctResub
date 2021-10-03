@@ -14,16 +14,25 @@
 
 <div class="container">
     <div class="row contact_request">
+      {% if user.is_authenticated %} 
 <ul>
 {% for post in object_list %}
-   <li><a href="{% url 'article_detail' post.pk %}">{{ post.title }} - {{ post.author }}</a><br/>
+   <li><a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a><br/>
+      - {{ post.author }} - {{ post.post_date}}
       <br/>
+      {% if request.user.is_superuser or request.user == post.user %}
       <a href="{% url 'update_post' post.pk %}">Edit</a>
       <a href="{% url 'delete_post' post.pk %}" class="btn btn_add_cancel">Delete</a>
+      {% endif %}
     {{ post.author.email }}
-   {{ post.body }}</li>
+   {{ post.body|slice:":200" }}</li>
 {% endfor %}
 </ul>
+{% else %}
+<H1>You will need to login to access blog post</H1>
+
+{% endif %}
+
     </div>
 </div>
 {% endblock %}
