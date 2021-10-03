@@ -5,7 +5,7 @@
 <div class="container header-container">
    <div class="row">
       <div class="col text-center dog_detail_header">
-         <h1>Post</h1>
+         <h1>{{ post.title }}</h1>
       </div>
    </div>
 </div>
@@ -14,26 +14,27 @@
 
 <div class="container">
     <div class="row contact_request">
+       <div class="col">
       {% if user.is_authenticated %} 
-<h1>{{ post.title }}</h1>
-<small> By : {{ post.author }}</small><br/>
-{{ post.post_date}}
+By : {{ post.author }}<br/>
+Written on: {{ post.post_date}}<br/>
+{% if request.user.is_superuser or request.user == post.user %}
+<a href="{% url 'update_post' post.pk %}" class="btn btn-orange">Edit</a>
+<a href="{% url 'delete_post' post.pk %}" class="btn btn-orange">Delete</a>
+{% endif %}
 <hr>
 <br/>
 {{ post.body }}
 
 <br/>
 <br/>
-<a href="{% url 'blog' %}" class="btn btn_add_cancel"> Back</a>
-<a href="{% url 'add_post' %}" class="btn btn_add_cancel"> Add post</a>
-{% if request.user.is_superuser or request.user == post.user %}
-<a href="{% url 'update_post' post.pk %}" class="btn btn_add_cancel">Edit</a>
-<a href="{% url 'delete_post' post.pk %}" class="btn btn_add_cancel">Delete</a>
-{% endif %}
+<a href="{% url 'blog' %}" class="btn btn-orange"> Back</a>
+<a href="{% url 'add_post' %}" class="btn btn-orange"> Add a new post</a>
 {% else %}
 <H1>You will need to login to access blog post</H1>
 
 {% endif %}
+</div>
     </div>
 </div>
 {% endblock %}

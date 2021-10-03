@@ -5,7 +5,7 @@
 <div class="container header-container">
    <div class="row">
       <div class="col text-center dog_detail_header">
-         <h1>Post</h1>
+         <h1>Dog Playdates Posts</h1>
       </div>
    </div>
 </div>
@@ -15,19 +15,20 @@
 <div class="container">
     <div class="row contact_request">
       {% if user.is_authenticated %} 
-<ul>
+<ul class="text-center">
 {% for post in object_list %}
-   <li><a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a><br/>
-      - {{ post.author }} - {{ post.post_date}}
+   <li><a href="{% url 'article_detail' post.pk %}"><h2>{{ post.title }}</h2></a><br/>
+      By: {{ post.author }} Written on : {{ post.post_date}}
       <br/>
-      {% if request.user.is_superuser or request.user == post.user %}
-      <a href="{% url 'update_post' post.pk %}">Edit</a>
+   {{ post.body|slice:":200" }}</li>
+   <br/>
+   {% if request.user.is_superuser or request.user == post.user %}
+      <a href="{% url 'update_post' post.pk %}" class="btn btn_add_cancel">Edit</a>
       <a href="{% url 'delete_post' post.pk %}" class="btn btn_add_cancel">Delete</a>
       {% endif %}
-    {{ post.author.email }}
-   {{ post.body|slice:":200" }}</li>
 {% endfor %}
 </ul>
+<br/>
 {% else %}
 <H1>You will need to login to access blog post</H1>
 
