@@ -45,12 +45,12 @@ As a new user of this application:
 ### Scope
 The specifications and requirements for the site to adhere to the user stories include:
 * A search bar to easily find the dog you're looking for or in nearby locations.
-* A form to easily add new dogs and edit or delet if you are the user.
+* A form to easily add new dogs and edit or delete if you are the user.
 * Links to social media accounts for more content.
 * A single detail page with more infromatipn about the dog.
 * A log in and out function so users have their own page.
 * Stripe functionality to allow for easy sign up to one of subscription.
-* 
+* A blog post page to allow users to post about dog meet ups and view other users posts.
 
 
 ### Structure
@@ -120,7 +120,7 @@ The surface of the site should be clean and simple. All the content is well spac
 * To validate HTML code
 12. [W3C CSS validator service](https://jigsaw.w3.org/css-validator/validator)
 * To validate CSS code
-13. [Python code validator](http://pep8online.com/))
+13. [Python code validator](http://pep8online.com/)
 * To validate Python code
 14. [JQuery](https://jquery.com/)
 * To add Javascript functionality
@@ -155,6 +155,15 @@ The surface of the site should be clean and simple. All the content is well spac
 
 ## Information Architecture
 During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
+
+The following apps were created for this website - Dogs, Blog, Subscribe, Home, Profiles.
+
+* The Dogs App contains the following Models - Dog and Breed.
+* The Subscribe App contains the following Model - Subscription
+* The Blog App contains the following Model - Post
+* The Profile App contains the following Model - Profile
+
+The following is the websites ERD (Entity Relationship Diagram) -
 
 ## Testing
 
@@ -225,11 +234,20 @@ The project was also tested on multiple browsers (Chrome, Microsoft edge, Intern
 
 #### Blog
 * Slice method on blog posts ensures that only 200 characters display on blog page with all the posts.
+* Post displays correct date of users post and is ordering according to date.
+* Add , edit and delete functions for all posts work.
+
+### Contact Us
+* Social media account links rbinf user to each social media page.
+* Able to send email to site using form and email successfully recieved from the back end. 
+![EmailJS Image](/media/emailJS.png)
 
 
 
 #### Bugs 
 Had trouble making migrations once the app was connected to Heroku. There was an error connecting to the DATABASE_URL. This is a known bug in Gitpod which was remedied by unsetting the DATABASE_URL in the command line. When I did this and pushed to github, it stopped deploying to Heroku. 
+
+My access to the code institute LMS and tutor support became unavaialble before I finished and therefore my abilitiy to fully deploy the project was unsuccessful. The site works using the production port 8000 except but the ability to add a new user fails due to the email enviroment variables half in the other database. But the CRUD function of th superuser all work perfectly using the sqlite3 database. The project was only half deployed when the access was removed and hence why it is only partly working.
 
 ## Deployment
 
