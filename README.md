@@ -2,35 +2,43 @@
 # MileStone Project Four
 ## Dog Dating Website
 
-###About
-Welcome to Dating Dogs, a webapp to help dogs find love! This is a Python app using Django, cloudinary and Email JS to produce a social media style application.
+### About
+Welcome to Dating Dogs, a webapp to help dogs find love! This is a Python app using Django, and Email JS to produce a social media style application.
 
 Dating Dogs currently brings users together and allows them to get in contact with the pups they love! The application lets the users create a profile that allows them to add their dogs’ details, add photos, let other users know when the next walk with their dog is happening through blog posts, and access the contact information of fellow pooches. The site offers the additional functionality; reset paasswords,reporting other users, contact us, editing and deleting blogs as well as their profiles,and backend validation. Please look at the features section for a more detailed description. The application has a lot of room for growth and a list of future features to implement.
 
 
-This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to also search through different categories, locations, ages etc and to message potential dog owners. Owners can search the different dogs but the subscription service will allow them access to view the dogs full profile and access there contact information. The subscription service will also allow them to access the blog posts for group puppy playdates.
+This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to search through different categories, locations, ages etc and to leave blog posts so other potential dog owners can arrange pooch playdates. Owners can search the different dogs but the only once a user is subscribed subscription will they haveallow them to view the dogs full profile, access their contact information, and blog posts.
 
 ## Ux
 ### Strategy
 
-The basic strategy behind this application was to create a simple and easy to navigate where users could search for other dog dates in their area or selected county. The objective was to create a community for dog lovers to set their pets up with a social life. 
+The basic strategy behind this application was to create a simple and easy to navigate app where users could search for other dog dates in their area or selected county. The objective was to create a community for dog lovers to set their pets up with a social life. I have created a playmate finding service dedicated to human’s best friend.
 
 **User Stories**
 
-As a user of this application: 
+As a new user of this application: 
+
+* I would like to find out what the site is about and how it works
+* I would like to see if the site is for me without registering
+* I would like to easily register
+
+As a new user of this application: 
 
 * I would like to search for dogs with different criteria.
-* Read reviews and recommendations from other users.
+* I would like to be able to sign in and out easily.
 * See the location of the dogs.
 * See the breed of the dogs
-* see the age.
+* See the age.
 * Find information about them from their description.  
 * Be able to contact someone about any issues with any of the content or the dogs. 
 * Easy to use on desktop and mobile.
-* Simple design with no complicated format. 
+* Add dog details, edit and delete details.
+* View posts about potential playdates. Also add, edit and delete my own posts.
+* Be able to search for other dogs based on location, breed or key words in description
 
 **Site owner Stories**
-* A self sufficent site where users pay a one off subscription to enable them to upload their profile, message other users and search through other profiles.
+* A self sufficent site where users pay a one off subscription to enable them to upload their profile, search through other profiles and view other dog lovers playdaye posts.
 * Low maintainance as automatic emails, updates and messages are enabled to support the user.
 * Potential to incorporate adds in the future for extra revenue. 
 
@@ -39,9 +47,10 @@ The specifications and requirements for the site to adhere to the user stories i
 * A search bar to easily find the dog you're looking for or in nearby locations.
 * A form to easily add new dogs and edit or delet if you are the user.
 * Links to social media accounts for more content.
-* A single detail page with more infromatipn of the dog.
+* A single detail page with more infromatipn about the dog.
 * A log in and out function so users have their own page.
 * Stripe functionality to allow for easy sign up to one of subscription.
+* 
 
 
 ### Structure
@@ -58,7 +67,7 @@ The skeleton of the site was designed to be clean and simple and easy to navigat
 
 [All dogs](media/all_dogs_page.png)
 
-[future messenger](media/messenger.png)
+
 
 
 ### Surface
