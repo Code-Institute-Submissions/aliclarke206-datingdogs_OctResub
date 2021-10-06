@@ -71,11 +71,11 @@
                      <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                      <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                      <a href="{% url 'add_dog' %}" class="dropdown-item">Add Dog</a>
+                     <a href="{% url 'blog' %}" class="dropdown-item">Dog Blog</a>
                      {% else %}
                      <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                     {% endif %}
                      <a href="{% url 'subscribe' %}" class="dropdown-item">Subscribe</a>
-                     <a href="{% url 'blog' %}" class="dropdown-item">Blog</a>
+                     {% endif %}
                   </div>
                </div>
             </div>
