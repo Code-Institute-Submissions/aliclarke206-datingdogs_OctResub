@@ -18,7 +18,8 @@
       <form method="POST">
          {% csrf_token %}
          {{ form.as_p }}
-         <button type="submit" class="btn btn-secondary">Post</button>
+         <button type="submit" class="btn btn-orange">Post</button>
+         <a href="{% url 'blog' %}" class="btn btn-orange"> Back</a>
      </form>
      {% else %}
      <H1>You will need to login to access blog post</H1>
