@@ -129,7 +129,7 @@ The surface of the site should be clean and simple. All the content is well spac
 * Could add some affiliated products to the site for your dog as an added revenue stream. 
 * Ablitiy to send likes to other dogs and make it a bit more interactive.
 * I would also like to render the Users dog detail page and blog posts to their User Profile page.
-
+* Add a loactaions tag if the user is posting a blog post about a playdate. 
 
 ## Technologies Used
 
@@ -278,6 +278,7 @@ Also when a user creates an account a verification email is successfully sent to
 
 
 The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
+Ran python3 -m flake8 for all problems to be displayed to fix a number of indentation errors and line lenght errors.
 
 
 
