@@ -7,10 +7,15 @@ Welcome to Dating Dogs, a webapp to help dogs find love! This is a Python app us
 
 Dating Dogs currently brings users together and allows them to get in contact with the pups they love! The application lets the users create a profile that allows them to add their dogs’ details, add photos, let other users know when the next walk with their dog is happening through blog posts, and access the contact information of fellow pooches. The site offers the additional functionality; reset paasswords,reporting other users, contact us, editing and deleting blogs as well as their profiles,and backend validation. Please look at the features section for a more detailed description. The application has a lot of room for growth and a list of future features to implement.
 
-
-This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to search through different categories, locations, ages etc and to leave blog posts so other potential dog owners can arrange pooch playdates. Owners can search the different dogs but the only once a user is subscribed subscription will they haveallow them to view the dogs full profile, access their contact information, and blog posts.
+This project is a simple and responsive design to allow users to easily search, navigate to find new dates for their dogs. Like a playdate but for dogs. It allows users to search through different categories, locations, ages etc and to leave blog posts so other potential dog owners can arrange pooch playdates. 
 
 ## Ux
+
+The overall goal of the website is to provide visitors with the ability to view other users pet profiles and gain access to their contact details or to blog posts to view any upcoming puppy playdates. 
+
+Visitors can can view a brief picture of the dogs on the dite but need to subscribe and login to have access to their full profile with contact info and to the blog posts. 
+
+
 ### Strategy
 
 The basic strategy behind this application was to create a simple and easy to navigate app where users could search for other dog dates in their area or selected county. The objective was to create a community for dog lovers to set their pets up with a social life. I have created a playmate finding service dedicated to human’s best friend.
@@ -47,17 +52,44 @@ The specifications and requirements for the site to adhere to the user stories i
 * A search bar to easily find the dog you're looking for or in nearby locations.
 * A form to easily add new dogs and edit or delete if you are the user.
 * Links to social media accounts for more content.
-* A single detail page with more infromatipn about the dog.
+* A single detail page with more infromation including contact information about the dog.
 * A log in and out function so users have their own page.
-* Stripe functionality to allow for easy sign up to one of subscription.
+* Stripe functionality to allow for easy sign up to a one of subscription fee.
 * A blog post page to allow users to post about dog meet ups and view other users posts.
 
 
 ### Structure
 The site used the SQlite3 database in development and PostgreSQL in production to allow the user to easily obtain new information correlating with the selected dog. The user can filter through using the search bar and then click each individual dog for more detailed information. 
 
+## Information Architecture
+During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
+
+The following apps were created for this website - Dogs, Blog, Subscribe, Home, Profiles.
+The User model is provided by Django as a part of defaults django.contrib.auth.models.
+
+* The Dogs App contains the following Models - Dog and Breed.
+* The Subscribe App contains the following Model - Subscription
+* The Blog App contains the following Model - Post
+* The Profile App contains the following Model - Profile
+
+The following is the websites ERD (Entity Relationship Diagram) -
+
+![ERD Image](/media/ERD.png)
+
+### Security
+* Username - The username can only exist once in the database and at registration the username is checked against the current usernames
+
+* Passwords - The password must contact a mixture of uppercase and lowercase letters, digits, and a special character. It must be at least 8 characters long. The password is salted and hashed using from werkzeug.security when it is collected from the user.
+
+* Login - At login, the user must match their username/email to the correct password. It will check to make sure that the password the user enters meets the check_password_hash. If successful, the user will be assigned a session cookie. If the user is unsuccessful then they will be notified that one of the fields is incorrect. I have chosen not to notify the user which field is incorrect so that their details remain private and are harder to guess.
+
+* Session Cookie - The user is assigned a session cookie on successful login. This allows the user to navigate their own profile, add edit and delete information. The user is not able to make any changes to pages that their session cookie does not match the username.
+
+* Reset Password - If the user tries to reset their password, they are sent an email to the email address we have on file. They are sent a random string temporary password and a link to the reset password page. Once they have clicked the link, they will need to enter the username attached to the email address as an extra measure.
+
+
 ### Skeleton
-The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information. The user can navigate to a single detail page for the dog for added description given by their owner. The users profile link, login and logout functions, add dog functionality are all displayed in the navigation bar. The user is either directed to log in or subscribe. Once the user has paid the subscription they are then lead to verify and register their email. Once that's complete they can then add a dog to the site. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
+The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information in the "about us" and "how it works" links. The user can navigate to a single detail page for the dog for further descriptions and contact info given by their owner.  The drop down menu provides the user with links to their profile, login and logout functions, add dog and the dog blog. The user is either directed to log in or subscribe. Once the user has paid the subscription they are then lead to verify and register their email. Once that's complete they can then add a dog to the site. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
 
 [Home Page](media/index_page.png)
 
@@ -85,17 +117,18 @@ The surface of the site should be clean and simple. All the content is well spac
 * Social links in footer available for more content
 * verification email when signing in
 * stripe to pay for subscription
+* contact us page so users can email any issues or queries with the site.
+* Blog psot for users to be able to display messages to other users about puppy playdates or just general dog owner reccomendations and discussions.
 
 
 ### Features Left to Implement
 
 
-* A lot more could be done to this project. More testing needed to be done and better naviagtion for the user and better UX. The basic functionalities work but it still requires a lot more work.
-* Adding in the messaging functionality to enable users to direct message each other. (I started to write the code but unfortunately ran out of time)
-* More time to edit CSS and design of the site. Time was limitied and therefore the look and feel of the site suffered. 
+* A lot more could be done to this project. More testing needed to be done and better naviagtion for the user and better UX. 
+* Adding a direct messaging functionality to enable users to direct message each other instead of leaving contact details on the dog profile page or communicating via the blog. 
 * Could add some affiliated products to the site for your dog as an added revenue stream. 
-* Ablitiy to sned likes to other dogs and make it a bit more interactive. Maybe include some blog posts about puppy meet ups etc in local areas. 
-*  I would also like to render the Users dog detail page and blog posts to their User Profile page.
+* Ablitiy to send likes to other dogs and make it a bit more interactive.
+* I would also like to render the Users dog detail page and blog posts to their User Profile page.
 
 
 ## Technologies Used
@@ -154,20 +187,6 @@ The surface of the site should be clean and simple. All the content is well spac
 29. [EmailJS](https://www.emailjs.com/)
 * To enable email service for the contact page. 
 
-## Information Architecture
-During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
-
-The following apps were created for this website - Dogs, Blog, Subscribe, Home, Profiles.
-The User model is provided by Django as a part of defaults django.contrib.auth.models.
-
-* The Dogs App contains the following Models - Dog and Breed.
-* The Subscribe App contains the following Model - Subscription
-* The Blog App contains the following Model - Post
-* The Profile App contains the following Model - Profile
-
-The following is the websites ERD (Entity Relationship Diagram) -
-
-![ERD Image](/media/ERD.png)
 
 ## Testing
 
@@ -180,20 +199,22 @@ The Python was checked using the [Python code validator](http://pep8online.com/)
 Manual testing was carried out to ensure the site carries out the intentions of the user stories.
 
 ##### Nav bar
-* Displays navigation elements according to user. If session isn’t a user it won’t display profile, add dog or logout element. The appropriate login or register elements appear. 
+* Displays navigation elements according to user. If session isn’t a user it won’t display profile, add dog, logout element, or dog blog. The appropriate login or register elements appear. 
 * Responsive to drop down menu on smaller screens. 
 * Use can sort by breed type age, breed or location.
+* Search bar filtrs through locations names and key words that might be in the descriptions.
 
 ##### Footer
-* Social links animation works on hover (on local host -- bug- all static files didnt upload to heroku).
+* Social links animation works on hover.
 * Social links open to seperate tab. 
+* Quick links section naviagtes users to how it works page, contact page and if the user is logged in, to the Dog Blog.
 
 ##### Search bar
 * Filters through description, breed and location.
 * Reset button brings user back to home page if clicked. 
 
-##### Page Wall 
-* Displays dog reviews created by all users. 
+##### All Dogs Wall 
+* Displays image of dog and snippet of relevant information. 
 * Delete and edit buttons appear for those dogs which were created by the user.
 * Clicking on specific dog brings the user to indiviual detail page. 
 * The sorting bar correctly orders the dogs by age, location, breed and name.
@@ -202,7 +223,7 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 ##### dog Detail Page
 * The correct dog details populate the key features field.
 * The description correctly populates underneath the image. 
-* If the user is the creator of the review the edit and delete buttons appear at the bottom to link to the edit delete functionality. 
+* If the user is the creator of the dog, the edit and delete buttons appear at the bottom to link to the edit delete functionality. 
 
 ##### Delete function
 * When delete function is called a warning message appears to confirm deletion.
@@ -226,17 +247,16 @@ Manual testing was carried out to ensure the site carries out the intentions of 
 * When logged out the session user is removed and is redirected back to login page. 
 
 ##### Subscribe
-* The subscribe page brings the user to a page to add details and credit card to allow the user to acces the rest of the site.
-* When tester card is used it successfully logs in the stripe account and webhook handler is successful
+* The subscribe page brings the user to a page to add details and credit card to allow the user to access the rest of the site.
+* When tester card is used it successfully logs in the stripe account and webhook handler is successful.
+* Error warnings  appear if the details entered don't meet the criteria. For example if the @ symbol wasnt used in the email section or if the form wasn't complete.
 
 #### Webhook and Emails
 
 Initially my webhook handelers were getting a error 401 message when I tried to test them but this was due to my local host not being public. Once the site was linked to the public heroku app the webhooks were successful and the charge is successful. 
 Also when a user creates an account a verification email is successfully sent to the user to allow them to verify their account. 
-
-The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
-
 ![Confirmation email](/media/confirm_email_ss.png)
+
 
 #### Blog
 * View all blog posts' (visible to all users once logged in) renders the blog post templates and displays all available blog posts.
@@ -249,14 +269,24 @@ The project was also tested on multiple browsers (Chrome, Microsoft edge, Intern
 ### Contact Us
 * Social media account links for user to each social media page.
 * Able to send email to site using form and email successfully recieved from the back end. 
+* Query selection successfully populates when clicked and displays relevant options. 
 ![EmailJS Image](/media/emailJS.png)
+
+## About us Page
+* All links bring user to relevant pages
+* Media files display in order. During deployment there was some issues getting the media files from the new database but the issue was solved using the {{MEDIA_URL}} functionality.
+
+
+The project was also tested on multiple browsers (Chrome, Microsoft edge, Internet Explorer, and Firefox) and I used the Google Chrome's developer tools to see how it looks across all the different device screen sizes to ensure compatibility and responsiveness. 
 
 
 
 #### Bugs 
+When submitting a blog post the user is able to pick any user name. Ideally the only user name available would be their own. 
+
+## Challenges
 Had trouble making migrations once the app was connected to Heroku. There was an error connecting to the DATABASE_URL. This is a known bug in Gitpod which was remedied by unsetting the DATABASE_URL in the command line. When I did this and pushed to github, it stopped deploying to Heroku. 
 
-My access to the code institute LMS and tutor support became unavaialble before I finished and therefore my abilitiy to fully deploy the project was unsuccessful. The site works using the production port 8000 except but the ability to add a new user fails due to the email enviroment variables half in the other database. But the CRUD function of th superuser all work perfectly using the sqlite3 database. The project was only half deployed when the access was removed and hence why it is only partly working.
 
 ## Deployment
 
