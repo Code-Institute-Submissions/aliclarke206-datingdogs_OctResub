@@ -5,8 +5,8 @@ from .models import Subscription
 class SubscriptionForm(forms.ModelForm):
     class Meta:
         model = Subscription
-        fields = ('full_name', 'email', 'town_or_city', 'country', 
-                'county',)
+        fields = ('full_name', 'email', 'town_or_city', 'country',
+                  'county',)
 
     def __init__(self, *args, **kwargs):
         """

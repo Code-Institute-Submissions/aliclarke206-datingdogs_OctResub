@@ -20,15 +20,15 @@ class StripeWH_Handler:
             {'subscription': subscription})
         body = render_to_string(
             'subscribe/confirmation_emails/confirmation_email_body.txt',
-            {'subscription': subscription, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        
+            {'subscription': subscription,
+             'contact_email': settings.DEFAULT_FROM_EMAIL})
+
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )        
-
+        )
 
     def handle_event(self, event):
         """Handle a generic/unknown/unexpected webhook event"""

@@ -11,7 +11,8 @@ from profiles.models import UserProfile
 class Subscription(models.Model):
     member_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='subscription')
+                                     null=True, blank=True,
+                                     related_name='subscription')
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
@@ -36,4 +37,3 @@ class Subscription(models.Model):
 
     def __str__(self):
         return self.member_number
-
