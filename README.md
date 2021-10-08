@@ -54,7 +54,7 @@ The specifications and requirements for the site to adhere to the user stories i
 
 
 ### Structure
-The site is linked with the SQlite3 database in development and PostgreSQL in production to allow the user to easily obtain new information correlating with the selected dog. The user can filter through using the search bar and then click each individual dog for more detailed information. 
+The site used the SQlite3 database in development and PostgreSQL in production to allow the user to easily obtain new information correlating with the selected dog. The user can filter through using the search bar and then click each individual dog for more detailed information. 
 
 ### Skeleton
 The skeleton of the site was designed to be clean and simple and easy to navigate. The information was largely displayed in bullet point form so the user wasn’t overloaded with information. The user can navigate to a single detail page for the dog for added description given by their owner. The users profile link, login and logout functions, add dog functionality are all displayed in the navigation bar. The user is either directed to log in or subscribe. Once the user has paid the subscription they are then lead to verify and register their email. Once that's complete they can then add a dog to the site. The navigation bar is also responsive to all screens weather on mobile, tablet or desktop. The card panels are displayed on the main page or users can also filter through using the search function. The skeleton mock ups were roughly done on [Balsamiq WireFrames](https://balsamiq.com/) . 
@@ -63,7 +63,7 @@ The skeleton of the site was designed to be clean and simple and easy to navigat
 
 [Add/Edit Page](media/add-delete-page.png)
 
-[Dog_detail](media/dog detail page.png)
+[Dog detail](media/dog_detail_page.png)
 
 [All dogs](media/all_dogs_page.png)
 
@@ -95,6 +95,7 @@ The surface of the site should be clean and simple. All the content is well spac
 * More time to edit CSS and design of the site. Time was limitied and therefore the look and feel of the site suffered. 
 * Could add some affiliated products to the site for your dog as an added revenue stream. 
 * Ablitiy to sned likes to other dogs and make it a bit more interactive. Maybe include some blog posts about puppy meet ups etc in local areas. 
+*  I would also like to render the Users dog detail page and blog posts to their User Profile page.
 
 
 ## Technologies Used
@@ -157,6 +158,7 @@ The surface of the site should be clean and simple. All the content is well spac
 During the development phase of the project, I used sqlite3 database which was installed with Django. For deployment/production, a PostgreSQL is provided by Heroku. 
 
 The following apps were created for this website - Dogs, Blog, Subscribe, Home, Profiles.
+The User model is provided by Django as a part of defaults django.contrib.auth.models.
 
 * The Dogs App contains the following Models - Dog and Breed.
 * The Subscribe App contains the following Model - Subscription
@@ -164,6 +166,8 @@ The following apps were created for this website - Dogs, Blog, Subscribe, Home, 
 * The Profile App contains the following Model - Profile
 
 The following is the websites ERD (Entity Relationship Diagram) -
+
+![ERD Image](/media/ERD.png)
 
 ## Testing
 
@@ -235,12 +239,15 @@ The project was also tested on multiple browsers (Chrome, Microsoft edge, Intern
 ![Confirmation email](/media/confirm_email_ss.png)
 
 #### Blog
+* View all blog posts' (visible to all users once logged in) renders the blog post templates and displays all available blog posts.
+* Create Blog Post' (only available to logged in users) renders the create a blog post template with a form so the user can publish a blog post.
+* Only authenticated users are allowed to publish and view blog posts. The Blog link in the dropdown menu and in the quicklinks footer only becomes available once a user is logged in. For non-authenticated users, the link does not appear. 
 * Slice method on blog posts ensures that only 200 characters display on blog page with all the posts.
 * Post displays correct date of users post and is ordering according to date.
-* Add , edit and delete functions for all posts work.
+* Superusers and 
 
 ### Contact Us
-* Social media account links rbinf user to each social media page.
+* Social media account links for user to each social media page.
 * Able to send email to site using form and email successfully recieved from the back end. 
 ![EmailJS Image](/media/emailJS.png)
 
