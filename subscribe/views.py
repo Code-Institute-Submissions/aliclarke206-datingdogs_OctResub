@@ -45,7 +45,8 @@ def subscribe(request):
         if subscription_form.is_valid():
             subscription = subscription_form.save()
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('subscribe_success', args=[subscription.member_number]))
+            return redirect(reverse('subscribe_success',
+                            args=[subscription.member_number]))
 
         else:
             messages.error(request, 'There was an error with your form. \
